@@ -1,1 +1,1 @@
-# dinner-and-a-drink
+# Simple Eats
