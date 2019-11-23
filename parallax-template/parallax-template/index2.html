@@ -17,7 +17,7 @@
         <div class="nav-wrapper container">
             <a id="logo-container" href="#" class="brand-logo">Simple Eats</a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="#">Navbar Link</a></li>
+                <li><a id="hmpgNav" style="display:none" href="#">Navbar Link</a></li>
             </ul>
 
             <ul id="nav-mobile" class="sidenav">
@@ -33,13 +33,20 @@
                 <br><br>
                 <h1 class="header center white-text text-lighten-3">Recipe Finder</h1>
                 <div class="row center">
-                    <h5 class="header col s12 darken-2">A simple way to find recipes, build your grocery list and be more
+                    <h5 class="header col s12 darken-2">A simple way to find recipes, build your grocery list and be
+                        more
                         informed about your food.</h5>
                 </div>
                 <div class="row center">
-                    <div class="search-wrapper">
-                        <input id= "search" placeholder="Search Recipes Here"><i id= "download-button" style="background-color: white; color: black; border-radius: 5px; margin:0;" class= "medium material-icons">search</i> 
-                    </div>                
+                    <div class="search-wrapper" style="position: relative;
+                        height: 65px; margin-left: 25%; background-color: white; width:50%">
+                        <input id="search" placeholder="Search Recipes Here" style="top: -20px;
+                        position: absolute;
+                        left: 15%;">
+                        <i id="download-button"
+                            style="background-color: white; color: black; border-radius: 5px;  position: absolute; right: 5%;"
+                            class="medium material-icons">search</i>
+                    </div>
                     <!-- <div class= "search results">
                     </div>               -->
                 </div>
@@ -58,28 +65,31 @@
             <div class="row">
                 <div class="col s12 m4">
                     <div class="icon-block">
-                        <h2 class="center  purple-text"><i class="material-icons">restaurant</i></h2>
+                        <!-- <h2 class="center  purple-text"><i class="material-icons">restaurant</i></h2> -->
                         <h5 class="center">Suggested Recipes</h5>
 
-                        <p class="light">We have pulled some of the best recipes for you to enjoy.  Included with your recipe is a list of ingriedents, instructions and nutrtional information.</p>
+                        <p class="light">We have pulled some of the best recipes for you to enjoy. Included with your
+                            recipe is a list of ingriedents, instructions and nutrtional information.</p>
                     </div>
                 </div>
 
                 <div class="col s12 m4">
                     <div class="icon-block">
-                        <h2 class="center  purple-text"><i class="material-icons">tag_faces</i></h2>
-                        <h5 class="center">Foodie Jokes</h5>
+                        <!-- <h2 class="center  purple-text"><i class="material-icons">restaurant</i></h2> -->
+                        <h5 class="center">Suggested Recipes</h5>
 
-                        <p class="light">Here's something on the lighter side with ZERO caloires...</p>
+                        <p class="light">We have pulled some of the best recipes for you to enjoy. Included with your
+                            recipe is a list of ingriedents, instructions and nutrtional information.</p>
                     </div>
                 </div>
 
                 <div class="col s12 m4">
                     <div class="icon-block">
-                        <h2 class="center  purple-text"><i class="material-icons">add_shopping_cart</i></h2>
-                        <h5 class="center">Grocery List</h5>
+                        <!-- <h2 class="center  purple-text"><i class="material-icons">restaurant</i></h2> -->
+                        <h5 class="center">Suggested Recipes</h5>
 
-                        <p class="light">Create and keep your grocery list handy. You can add to your list right from your recipe.</p>
+                        <p class="light">We have pulled some of the best recipes for you to enjoy. Included with your
+                            recipe is a list of ingriedents, instructions and nutrtional information.</p>
                     </div>
                 </div>
             </div>
@@ -104,21 +114,29 @@
         <div class="section">
 
             <div class="row">
-                <div class="col s12 center">
-                    <h3><i class="mdi-content-send brown-text"></i></h3>
-                    <h4>Contact Us</h4>
-                    <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                        scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna
-                        fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra
-                        ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam
-                        eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi
-                        massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non
-                        tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-                        Curae;</p>
-                </div>
-            </div>
+                <div class="col s12 m6">
+                    <div class="icon-block">
+                        <h2 class="center  purple-text"><i class="material-icons">tag_faces</i></h2>
+                        <h5 class="center">Foodie Jokes</h5>
 
+                        <p class="center light">Here's something on the lighter side with ZERO caloires...</p>
+                    </div>
+                </div>
+
+                <div class="col s12 m6">
+                    <div class="icon-block">
+                        <h2 class="center  purple-text"><i class="material-icons">add_shopping_cart</i></h2>
+                        <h5 class="center">Grocery List</h5>
+
+                        <p class="center light">Create and keep your grocery list handy. You can add to your list right from
+                            your recipe.</p>
+                    </div>
+                </div>
+
+            </div>
         </div>
+
+    </div>
     </div>
 
 
@@ -145,7 +163,7 @@
 
 
                 </div>
-                <div class="col l3 s12">
+                <!-- <div class="col l3 s12">
                     <h5 class="white-text">Settings</h5>
                     <ul>
                         <li><a class="white-text" href="#!">Link 1</a></li>
@@ -162,7 +180,7 @@
                         <li><a class="white-text" href="#!">Link 3</a></li>
                         <li><a class="white-text" href="#!">Link 4</a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="footer-copyright">
