@@ -8,7 +8,7 @@
 
 nav ul a,
 nav .brand-logo {
-  color: #26a69a;
+  color: #26a69a;  
 }
 
 p {
@@ -29,20 +29,32 @@ p {
     width: 100%;
   }
   
-#download-button {
-  /* float: right; */
+#logo-container {
+  font-weight: bold;
 }  
 
 #search {
-  width:75%;
+  /* width:75%; */
   background-color: white;
   color: black;
   font-size: 25px;
   padding:10px;
-  margin: 20px;   
-  /* float:left; */
+  margin: 20px;     
 }
 
+#slide-out {
+  background-color: #26a69a;  
+  }
+
+  header, main, footer {
+    padding-left: 300px;
+  }
+
+  @media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+    }
+  }
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
