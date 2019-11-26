@@ -9,6 +9,13 @@
     <!-- <link rel="stylesheet" href="assets/materialize/css/materialize.css"> -->
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
 
     <title>Simple Eats</title>
 </head>
@@ -76,8 +83,34 @@
                 </div>   
             </div>
         </div>
+    </nav>
+    <div class = "row">
+        <div class = "col s3 m4 l3" style = "background-color: blue;">  
+            <p>This text will use 2 columns on a small screen, 4 on a medium screen, and 3 on  
+                a large screen.</p>  
+            <input placeholder="Test" id="searchInput">
+            <i class="fas fa-search search-icon"></i>
+            <div class="input-field col s12">
+                    <select multiple>
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="1">Vegan</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                    </select>
+                <label>Materialize Multiple Select</label>
+            </div>
+         </div>  
+         <div class = "col s9 m8 l9" style = "background-color: red;" id="rightSide">  
+            <p>This text will use 2 columns on a small screen, 4 on a medium screen, and 3 on  
+            a large screen.</p>  
+        </div>  
     </div>
-
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
  <!-- Compiled and minified JavaScript -->
  <!-- Compiled and minified JavaScript -->
