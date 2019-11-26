@@ -6,9 +6,31 @@
  * Made By MaterializeCSS.com
  */
 
+
+ /*these 3 btn calls are to help with hover buttons and will need the class "btn" added to each button that needs this hover effect*/
+ /* .btn {
+  overflow: hidden;
+}
+.btn:hover:before {
+  opacity:1;
+}
+
+.btn:before {
+    content: '';
+    opacity: 0;
+    background-color: rgba(0,0,0,.6);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: opacity .2s;
+    z-index: -1;
+} */
+
 nav ul a,
 nav .brand-logo {
-  color: #26a69a;
+  color: #26a69a;  
 }
 
 p {
@@ -29,20 +51,37 @@ p {
     width: 100%;
   }
   
-#download-button {
-  /* float: right; */
+#logo-container {
+  font-weight: bold;
 }  
 
 #search {
-  width:75%;
+  /* width:75%; */
   background-color: white;
   color: black;
   font-size: 25px;
   padding:10px;
-  margin: 20px;   
-  /* float:left; */
+  margin: 20px;     
 }
 
+#slide-out {
+  background-color: #26a69a;  
+  }
+
+#rpbkimg {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+  header, main, footer {
+    padding-left: 300px;
+  }
+
+  @media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+    }
+  }
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
