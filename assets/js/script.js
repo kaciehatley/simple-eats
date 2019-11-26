@@ -1,13 +1,15 @@
-// example URL
-// https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?diet=vegetarian&excludeIngredients=coconut&intolerances=egg%252C%20gluten&number=10&offset=0&type=main%20course&query=burger
 
-// %252c comma
-// %20 space
+document.addEventListener('DOMContentLoaded', function() {
+	var options = document.querySelectorAll('option');
+    var elems = document.querySelectorAll('select');
+    var instances = M.FormSelect.init(elems, options);
+})
+
 
 //search recipe
 var searchURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5";
-var dietFilter = "diet="
-// pescetarian, lacto vegetarian, ovo vegetarian, vegan, vegatarian
+var dietFilter = "&diet="
+// pescetarian, lacto vegetarian, ovo vegetarian, vegan, vegetarian
 var excludeFilter = "&excludeIngredients=";
 var intoleranceFilter = "&intolerances=";
 // dairy, egg, gluten, peanut, sesame, seafood, shellfish, soy, sulfite, tree nut, wheat
