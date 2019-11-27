@@ -1,4 +1,4 @@
-
+// Event listener for drop downs
 document.addEventListener('DOMContentLoaded', function() {
 	var options = document.querySelectorAll('option');
     var elems = document.querySelectorAll('select');
