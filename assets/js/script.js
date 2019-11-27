@@ -81,13 +81,8 @@ searchIcon.addEventListener("click", function() {
 				newDiv.append("Servings: " + response.servings);
 				$(newDiv).append("<br>");
 				newDiv.append("Total Time: " + response.readyInMinutes);
-<<<<<<< HEAD
-				rightSide.append(newDiv);
-		
-=======
 				resultsDiv.append(newDiv);
 
->>>>>>> 7f591502460462bfb2e3f5a171fa805ede09cc3f
 				newDiv.addEventListener("click", function(event) {
 					var settingsC = {
 						"async": true,
