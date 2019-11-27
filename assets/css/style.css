@@ -108,3 +108,11 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+.recipeDiv {
+  margin: 20px;
+  border: 1px solid black;
+  background-color: white;
+  padding: 8px;
+  text-align: right;
+}
