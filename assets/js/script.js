@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 	var options = document.querySelectorAll('option');
     var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, options);
+	var instances = M.FormSelect.init(elems, options);
 })
 
 
@@ -21,15 +21,15 @@ var recipeID = 0;
 // input value
 var userSearch = $("#searchInput").val();
 // left and right page columns
-var searchIcon = document.querySelector(".search-icon");
-var rightSide = document.querySelector("#rightSide");
+var searchIcon = document.querySelector("#download-button");
+// var rightSide = document.querySelector("#rightSide");
 
 var recipeID = [];
 var currentRecipeID = 0;
 
 searchIcon.addEventListener("click", function() {
 	recipeID = [];
-	var query = $("#searchInput").val();
+	var query = $("#search").val();
 	var settingsA = {
 		"async": true,
 		"crossDomain": true,
@@ -62,6 +62,7 @@ searchIcon.addEventListener("click", function() {
 			
 			$.ajax(settingsB).done(function (response) {
 				console.log(response);
+				var resultsDiv = document.querySelector(".resultsDiv");
 				var newDiv=document.createElement("div");
 				newDiv.setAttribute("class", "recipeDiv");
 				newDiv.setAttribute("id", response.id);
@@ -70,7 +71,7 @@ searchIcon.addEventListener("click", function() {
 				newDiv.append("Servings: " + response.servings);
 				$(newDiv).append("<br>");
 				newDiv.append("Total Time: " + response.readyInMinutes);
-				rightSide.append(newDiv);
+				resultsDiv.append(newDiv);
 
 				newDiv.addEventListener("click", function(event) {
 
