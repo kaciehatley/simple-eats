@@ -143,3 +143,7 @@ footer.page-footer {
   border: 1px solid white;
   border-radius: 5px;
 }
+
+.image {
+  filter: brightness(50%);
+}
