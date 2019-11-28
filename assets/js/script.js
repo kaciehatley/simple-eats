@@ -1,3 +1,10 @@
+var fSearch = document.getElementById("filterSearch");
+var fDiet = document.getElementById("dietOptions");
+var fExcluded = document.getElementById("exclIngr");
+var fAllergy = document.getElementById("allergyOptions");
+var fType = document.getElementById("mealTypeOptions");
+var fBtn = document.getElementById("filterBtn");
+
 // Event listener for drop downs
 document.addEventListener('DOMContentLoaded', function() {
 	var options = document.querySelectorAll('option');
@@ -22,13 +29,8 @@ var recipeID = 0;
 // input value
 var userSearch = $("#searchInput").val();
 // left and right page columns
-<<<<<<< HEAD
 var searchIcon = document.getElementById("download-button");
 var rightSide = document.querySelector("#rightSide");
-=======
-var searchIcon = document.querySelector("#download-button");
-// var rightSide = document.querySelector("#rightSide");
->>>>>>> 7f591502460462bfb2e3f5a171fa805ede09cc3f
 
 var recipeID = [];
 var currentRecipeID = 0;
@@ -39,9 +41,10 @@ var resultsPage = $(".resultsPage");
 searchIcon.addEventListener("click", function() {
 	event.preventDefault();
 	landingPage.attr("style", "display:none;");
-    resultsPage.attr("style", "display:block;");
+	resultsPage.attr("style", "display:block;");
 	recipeID = [];
 	var query = $("#search").val();
+	fSearch.value = query;
 	var settingsA = {
 		"async": true,
 		"crossDomain": true,
@@ -69,7 +72,6 @@ searchIcon.addEventListener("click", function() {
 					"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
 				}
 			}
-
 			$.ajax(settingsB).done(function (response) {
 				console.log(response);
 				var resultsDiv = document.querySelector(".resultsDiv");
