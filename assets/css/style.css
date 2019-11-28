@@ -114,6 +114,18 @@ p {
 footer.page-footer {
   margin: 0;
 }
+.resultsPage {
+  display: none;
+}
+.dropLabel {
+  color:white;
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px;
+}
+#filterSearch {
+  height: 25px;
+}
 
 .recipeDiv {
   margin: 20px;

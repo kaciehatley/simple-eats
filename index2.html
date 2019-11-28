@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Simple Eats</title>
-
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="assets/parallax-template/parallax-template/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
@@ -19,13 +17,11 @@
             <ul class="right hide-on-med-and-down">
                 <li><a id="hmpgNav" style="display:none" href="#">Navbar Link</a></li>
             </ul>
-
             <ul id="nav-mobile" class="sidenav">
                 <li><a href="#">Navbar Link</a></li>
             </ul>            
         </div>
     </nav>
-
     <div class="landingPage">
         <div id="index-banner" class="parallax-container">
             <div class="section no-pad-bot">
@@ -33,9 +29,7 @@
                     <br><br>
                     <h1 class="header center white-text text-lighten-3">Recipe Finder</h1>
                     <div class="row center">
-                        <h5 class="header col s12 darken-2">A simple way to find recipes, build your grocery list and be
-                            more
-                            informed about your food.</h5>
+                        <h5 class="header col s12 darken-2">A simple way to find recipes, build your grocery list and be more informed about your food.</h5>
                     </div>
                     <div class="row center">
                         <div class="search-wrapper" style="position: relative;
@@ -51,16 +45,12 @@
                         </div>               -->
                     </div>
                     <br><br>
-
                 </div>
             </div>
             <div class="parallax"><img src="assets/images/fresshFood.jpeg" alt="Unsplashed background img 1"></div>
         </div>
-
-
         <div class="container">
             <div class="section">
-
                 <!--   Icon Section   -->
                 <div class="row">
                     <div class="col s12 m4">
@@ -68,39 +58,29 @@
                             <!-- <h2 class="center  purple-text"><i class="material-icons">restaurant</i></h2> -->
                             <h5 class="center">Suggested Recipes</h5>
 
-                            <p class="light">We have pulled some of the best recipes for you to enjoy. Included with
-                                your
-                                recipe is a list of ingriedents, instructions and nutrtional information.</p>
+                            <p class="light">We have pulled some of the best recipes for you to enjoy. Included with your recipe is a list of ingriedents, instructions and nutrtional information.</p>
                         </div>
                     </div>
-
                     <div class="col s12 m4">
                         <div class="icon-block">
                             <!-- <h2 class="center  purple-text"><i class="material-icons">restaurant</i></h2> -->
                             <h5 class="center">Suggested Recipes</h5>
 
-                            <p class="light">We have pulled some of the best recipes for you to enjoy. Included with
-                                your
-                                recipe is a list of ingriedents, instructions and nutrtional information.</p>
+                            <p class="light">We have pulled some of the best recipes for you to enjoy. Included with your recipe is a list of ingriedents, instructions and nutrtional information.</p>
                         </div>
                     </div>
-
                     <div class="col s12 m4">
                         <div class="icon-block">
                             <!-- <h2 class="center  purple-text"><i class="material-icons">restaurant</i></h2> -->
                             <h5 class="center">Suggested Recipes</h5>
 
-                            <p class="light">We have pulled some of the best recipes for you to enjoy. Included with
-                                your
-                                recipe is a list of ingriedents, instructions and nutrtional information.</p>
+                            <p class="light">We have pulled some of the best recipes for you to enjoy. Included with your recipe is a list of ingriedents, instructions and nutrtional information.</p>
                         </div>
                     </div>
                 </div>
 
             </div>
         </div>
-
-
         <div class="parallax-container valign-wrapper">
             <div class="section no-pad-bot">
                 <div class="container">
@@ -112,7 +92,6 @@
             </div>
             <div class="parallax"><img src="assets/images/foodDisplayed.jpeg" alt="Unsplashed background img 2"></div>
         </div>
-
         <div class="container">
             <div class="section">
 
@@ -121,28 +100,19 @@
                         <div class="icon-block">
                             <h2 class="center  purple-text"><i class="material-icons">tag_faces</i></h2>
                             <h5 class="center">Foodie Jokes</h5>
-
                             <p class="center light">Here's something on the lighter side with ZERO caloires...</p>
                         </div>
                     </div>
-
                     <div class="col s12 m6">
                         <div class="icon-block">
                             <h2 class="center  purple-text"><i class="material-icons">add_shopping_cart</i></h2>
                             <h5 class="center">Grocery List</h5>
-
-                            <p class="center light">Create and keep your grocery list handy. You can add to your list
-                                right
-                                from
-                                your recipe.</p>
+                            <p class="center light">Create and keep your grocery list handy. You can add to your list right from your recipe.</p>
                         </div>
                     </div>
-
                 </div>
             </div>
-
         </div>
-
         <div class="parallax-container valign-wrapper">
             <div class="section no-pad-bot">
                 <div class="container">
@@ -194,6 +164,75 @@
                   </ul>
             <div class="resultsDiv"></div>
             <button class="groceryBtn waves-effect waves-light btn">Grocery List</button>
+        <img id=rpbkimg src="assets/images/fresshFood.jpeg" alt="fresh food img 1">
+        <ul id="slide-out" class="sidenav sidenav-fixed">
+            <li>
+                <div class="input-field dropDivs">
+                        <!-- <label> -->
+                            <h3 class="dropLabel">Search:</h3>
+                        <!-- </label> -->
+                        <input id="filterSearch" type="text" class="validate">
+                </div>
+            </li>
+            <li>
+                <div class="input-field dropDivs" id="dietOptions">
+                    <select multiple>
+                        <option value="pescetarian">Pescetarian</option>
+                        <option value="lacto%20vegetarian">Lacto Vegetarian</option>
+                        <option value="ovo%20vegetarian">Ovo Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="vegetarian">Vegetarian</option>
+                    </select>
+                    <label><h3 class="dropLabel">Diet Options:</h3></label>
+                </div> 
+            </li>
+            <li>
+                <div class="input-field dropDivs">
+                    <input id="exclIngr" type="text" class="validate">
+                    <label><h3 class="dropLabel">Excluded Ingredients:</h3></label>
+                </div>
+            </li>
+            <li>
+                <div class="input-field dropDivs" id="allergyOptions">
+                    <select multiple>
+                        <option value="dairy">Dairy</option>
+                        <option value="egg">Egg</option>
+                        <option value="gluten">Gluten</option>
+                        <option value="peanut">Peanut</option>
+                        <option value="seafood">Seafood</option>
+                        <option value="sesame">Sesame</option>
+                        <option value="shellfish">Shellfish</option>
+                        <option value="soy">Soy</option>
+                        <option value="sulfite">Sulfite</option>
+                        <option value="tree%20nut">Tree Nut</option>
+                        <option value="wheat">Wheat</option>
+                    </select>
+                    <label><h3 class="dropLabel">Are there any food intolerances or allergies?</h3></label>
+                </div> 
+            </li>
+            <li>
+                <div class="input-field dropDivs" id="mealTypeOptions">
+                    
+                    <select multiple>
+                        <option value="main%20course">Main Course</option>
+                        <option value="side%20dish">Side Dish</option>
+                        <option value="dessert">Dessert</option>
+                        <option value="appetizer">Appetizer</option>
+                        <option value="salad">Salad</option>
+                        <option value="bread">Bread</option>
+                        <option value="breakfast">Breakfast</option>                            
+                        <option value="soup">Soup</option>
+                        <option value="beverages">Beverages</option>
+                        <option value="sauce">Sauce</option>
+                        <option value="drink">Drink</option>
+                    </select>
+                    <label><h3 class="dropLabel">Would like you to display a specific type of recipe?</h3></label>
+                </div>   
+            </li>
+            <li>
+                <button id="filterBtn" onclick="filterList()">Search</button>
+            </li>
+        </ul>
     </div>
 
     <footer class="page-footer teal">
@@ -201,9 +240,7 @@
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">Company Bio</h5>
-                    <p class="white-text text-darkern-2">We are a team of college students working on this project like
-                        it's our full time job. Any amount would help support and continue development on this project
-                        and is greatly appreciated.</p>
+                    <p class="white-text text-darkern-2">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
                 </div>
             </div>
         </div>
@@ -220,7 +257,6 @@
     <script src="assets/parallax-template/parallax-template/js/materialize.js"></script>
     <script src="assets/parallax-template/parallax-template/js/init.js"></script>
     <script src="assets/js/script.js"></script>
-
 </body>
 
 </html>

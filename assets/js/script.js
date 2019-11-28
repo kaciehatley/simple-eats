@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	var instances = M.FormSelect.init(elems, options);
 })
 
+console.log($("#filterSearch").val());
 
 //search recipe
 var searchURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5";
@@ -21,13 +22,19 @@ var recipeID = 0;
 // input value
 var userSearch = $("#searchInput").val();
 // left and right page columns
-var searchIcon = document.querySelector("#download-button");
+var searchIcon = document.getElementById("download-button");
 // var rightSide = document.querySelector("#rightSide");
 
 var recipeID = [];
 var currentRecipeID = 0;
 
+var landingPage = $(".landingPage");
+var resultsPage = $(".resultsPage");
+
 function buttonClick() {
+	event.preventDefault();
+	landingPage.attr("style", "display:none;");
+    resultsPage.attr("style", "display:block;");
 	recipeID = [];
 	var query = $("#search").val();
 	var settingsA = {
@@ -38,13 +45,13 @@ function buttonClick() {
 		"headers": {
 			"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
 			"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
+		}
 	}
-}
 
 	$.ajax(settingsA).done(function (response) {
 		console.log(response);
 		for (var i=0; i < response.results.length; i++) {
-		recipeID.push(response.results[i].id);
+			recipeID.push(response.results[i].id);
 		}
 		for (var j=0; j < recipeID.length; j++) {
 			var settingsB = {
@@ -57,7 +64,6 @@ function buttonClick() {
 					"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
 				}
 			}
-			
 			$.ajax(settingsB).done(function (response) {
 				console.log(response);
 				var resultsDiv = document.querySelector(".resultsDiv");
@@ -72,21 +78,18 @@ function buttonClick() {
 				resultsDiv.append(newDiv);
 
 				newDiv.addEventListener("click", function(event) {
-
-			var settingsC = {
-				"async": true,
-				"crossDomain": true,
-				"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + newDiv.id + "/information",
-				"method": "GET",
-				"headers": {
-					"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-					"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
-				}
-			}
+					var settingsC = {
+						"async": true,
+						"crossDomain": true,
+						"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + newDiv.id + "/information",
+						"method": "GET",
+						"headers": {
+							"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+							"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
+						}
+					}
 					console.log(event);
 					console.log(newDiv.id);
-					
-
 					$.ajax(settingsC).done(function (response) {
 						console.log("Recipe Title: " + response.title);
 						console.log(response.image);
@@ -96,10 +99,13 @@ function buttonClick() {
 						}
 						console.log("Instructions: " + response.instructions);
 						console.log("Source URL: " + response.sourceUrl);
-					})
-					
+					});	
 				});
 			});
 		}
 	});
-}
+};
+
+// created filter functions and variables
+
+
