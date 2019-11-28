@@ -58,7 +58,6 @@
                         <div class="icon-block">
                             <!-- <h2 class="center  purple-text"><i class="material-icons">restaurant</i></h2> -->
                             <h5 class="center">Suggested Recipes</h5>
-
                             <p class="light">We have pulled some of the best recipes for you to enjoy. Included with your recipe is a list of ingriedents, instructions and nutrtional information.</p>
                         </div>
                     </div>
@@ -66,7 +65,6 @@
                         <div class="icon-block">
                             <!-- <h2 class="center  purple-text"><i class="material-icons">restaurant</i></h2> -->
                             <h5 class="center">Suggested Recipes</h5>
-
                             <p class="light">We have pulled some of the best recipes for you to enjoy. Included with your recipe is a list of ingriedents, instructions and nutrtional information.</p>
                         </div>
                     </div>
@@ -74,12 +72,10 @@
                         <div class="icon-block">
                             <!-- <h2 class="center  purple-text"><i class="material-icons">restaurant</i></h2> -->
                             <h5 class="center">Suggested Recipes</h5>
-
                             <p class="light">We have pulled some of the best recipes for you to enjoy. Included with your recipe is a list of ingriedents, instructions and nutrtional information.</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="parallax-container valign-wrapper">
@@ -95,7 +91,6 @@
         </div>
         <div class="container">
             <div class="section">
-
                 <div class="row">
                     <div class="col s12 m6">
                         <div class="icon-block">
@@ -127,109 +122,14 @@
         </div>
     </div>
 
-    <div class="resultsPage" >
-            <div class="resultsDiv"></div>
-            <button class="groceryBtn waves-effect waves-light btn">Grocery List</button>
-        <img id=rpbkimg src="assets/images/fresshFood.jpeg" alt="fresh food img 1">
-        <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Requested Recipe</a>
-
-        <!-- Modal Structure -->
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <h4>Request Recipe</h4>
-                <p>A bunch of text</p>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-            </div>
-        </div>
-    </div>
-
-    <ul id="slide-out" class="sidenav sidenav-fixed" style="display:none">
-        <li>
-            <div class="input-field">
-                <input placeholder="Search" id="filtSearch" type="text" class="validate">
-                <label for="filter_search">Search:</label>
-            </div>
-        </li>
-        <li>
-            <div class="input-field">
-                <select multiple>
-                    <option value="pescetarian">Pescetarian</option>
-                    <option value="lacto%20vegetarian">Lacto Vegetarian</option>
-                    <option value="ovo%20vegetarian">Ovo Vegetarian</option>
-                    <option value="vegan">Vegan</option>
-                    <option value="vegetarian">Vegetarian</option>
-                </select>
-                <label>Diet Options:</label>
-            </div>
-        </li>
-        <li>
-            <div class="input-field">
-                <input placeholder="Excluded Ingredients:" id="exclIngr" type="text" class="validate">
-                <label for="excluded_ingredients">Excluded Ingredients:</label>
-            </div>
-        </li>
-        <li>
-            <div class="input-field">
-                <select multiple>
-                    <option value="dairy">Dairy</option>
-                    <option value="egg">Egg</option>
-                    <option value="gluten">Gluten</option>
-                    <option value="peanut">Peanut</option>
-                    <option value="seafood">Seafood</option>
-                    <option value="sesame">Sesame</option>
-                    <option value="shellfish">Shellfish</option>
-                    <option value="soy">Soy</option>
-                    <option value="sulfite">Sulfite</option>
-                    <option value="tree%20nut">Tree Nut</option>
-                    <option value="wheat">Wheat</option>
-                </select>
-                <label>Are there any food intolerances or allergies?</label>
-            </div>
-        </li>
-        <li>
-            <div class="input-field">
-                <select multiple>
-                    <option value="main%20course">Main Course</option>
-                    <option value="side%20dish">Side Dish</option>
-                    <option value="dessert">Dessert</option>
-                    <option value="appetizer">Appetizer</option>
-                    <option value="salad">Salad</option>
-                    <option value="bread">Bread</option>
-                    <option value="breakfast">Breakfast</option>
-                    <option value="soup">Soup</option>
-                    <option value="beverages">Beverages</option>
-                    <option value="sauce">Sauce</option>
-                    <option value="drink">Drink</option>
-                </select>
-                <label>Would like you to display a specific type of recipe?</label>
-            </div>
-        </li>
-    </ul>
-
-    <!-- Modal Trigger -->
-    <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Grocery List</a>
-
-    <!-- Modal Structure -->
-    <div id="modal2" class="modal">
-        <div class="modal-content">
-            <h4>Grocery List</h4>
-            <p>A bunch of text</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-        </div>
-    </div>
-
+    <div class="resultsPage">
         <ul id="slide-out" class="sidenav sidenav-fixed">
             <li>
                 <div class="input-field dropDivs">
-                        <!-- <label> -->
-                            <h3 class="dropLabel">Search:</h3>
-                        <!-- </label> -->
-                        <input id="filterSearch" type="text" class="validate">
+                    <label>
+                        <h3 class="dropLabel">Search:</h3>
+                    </label>
+                    <input id="filterSearch" type="text" class="validate">
                 </div>
             </li>
             <li>
@@ -290,7 +190,38 @@
                 <button id="filterBtn" onclick="filterList()">Search</button>
             </li>
         </ul>
+
         <div class="resultsDiv"></div>
+            <button class="groceryBtn waves-effect waves-light btn">Grocery List</button>
+            
+        <img id=rpbkimg src="assets/images/fresshFood.jpeg" alt="fresh food img 1">
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Requested Recipe</a>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Request Recipe</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+
+         <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Grocery List</a>
+
+        <!-- Modal Structure -->
+        <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4>Grocery List</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
     </div>
 
     <footer class="page-footer teal">
