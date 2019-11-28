@@ -1,3 +1,10 @@
+var fSearch = document.getElementById("filterSearch");
+var fDiet = document.getElementById("dietOptions");
+var fExcluded = document.getElementById("exclIngr");
+var fAllergy = document.getElementById("allergyOptions");
+var fType = document.getElementById("mealTypeOptions");
+var fBtn = document.getElementById("filterBtn");
+
 // Event listener for drop downs
 document.addEventListener('DOMContentLoaded', function() {
 	var options = document.querySelectorAll('option');
@@ -34,9 +41,10 @@ var resultsPage = $(".resultsPage");
 function buttonClick() {
 	event.preventDefault();
 	landingPage.attr("style", "display:none;");
-    resultsPage.attr("style", "display:block;");
+	resultsPage.attr("style", "display:block;");
 	recipeID = [];
 	var query = $("#search").val();
+	fSearch.value = query;
 	var settingsA = {
 		"async": true,
 		"crossDomain": true,

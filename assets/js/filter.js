@@ -7,7 +7,6 @@ var fAllergy = document.getElementById("allergyOptions");
 var fType = document.getElementById("mealTypeOptions");
 var fBtn = document.getElementById("filterBtn");
 
-var searchURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5";
 var dietFilter = "&diet="
 	// pescetarian, lacto vegetarian, ovo vegetarian, vegan, vegetarian
 var excludeFilter = "&excludeIngredients=";
@@ -18,12 +17,10 @@ var recipeType = "&type=";
 var querySearch = "&query=";
 
 
-
 function filterList() {
 	event.preventDefault();
+
 	recipeID = [];
-	var query = fSearch.value;
-	console.log(query);
 	var settingsA = {
 		"async": true,
 		"crossDomain": true,
@@ -34,6 +31,81 @@ function filterList() {
 			"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
 		}
 	}
+
+	// filter search
+	var query = fSearch.value;
+	console.log(query);
+	
+	//filter diet options
+	var dietOpts = [];
+	// loop through options in select list
+	for (var i=0, len=fDiet.options.length; i<len; i++) {
+		optD = fDiet.options[i];
+		// check if selected
+		if ( optD.selected) {
+			// add to array of option elements to return from this function
+			dietOpts.push(optD.value);
+		}
+	}
+	if (dietOpts !== null) {
+		// add to url
+		settingsA.url + dietFilter;
+		for (var j=0; j < dietOpts.length; i++) {
+			settingsA.url + dietOpts[j];
+		}
+	}
+	console.log(dietOpts);
+
+	// filter excluded items
+	var exclVal = fExcluded.value;
+	console.log(exclVal);
+	if (exclVal !== null) {
+		settingsA.url + excludeFilter + exclVal;
+	}
+	console.log(exclVal);
+
+	// filter allergy
+	var allergyOpts = [];
+	// loop through options in select list
+	for (var i=0, len=fAllergy.options.length; i<len; i++) {
+		optA = fAllergy.options[i];
+		// check if selected
+		if ( optA.selected) {
+			// add to array of option elements to return from this function
+			allergyOpts.push(optA.value);
+		}
+	}
+	if (allergyOpts !== null) {
+		// add to url
+		settingsA.url + intoleranceFilter;
+		for (var j=0; j < allergyOpts.length; i++) {
+			settingsA.url + allergyOpts[j];
+		}
+	}
+	console.log(allergyOpts);
+
+	// filter type
+	var typeOpts = [];
+	// loop through options in select list
+	for (var i=0, len=fType.options.length; i<len; i++) {
+		optT = fType.options[i];
+		// check if selected
+		if (optT.selected) {
+			// add to array of option elements to return from this function
+			typeOpts.push(optT.value);
+		}
+	}
+	if (typeOpts !== null) {
+		// add to url
+		settingsA.url + recipeType;
+		for (var j=0; j < typeOpts.length; i++) {
+			settingsA.url + typeOpts[j];
+		}
+	}
+	console.log(typeOpts);
+
+	// run search
+	
 	$.ajax(settingsA).done(function (response) {
         console.log(response);
 		for (var i=0; i < response.results.length; i++) {
@@ -90,5 +162,4 @@ function filterList() {
 		});
 	});
 }
-
 // new function using "this" with click event to retrieve ID
