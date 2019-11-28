@@ -30,7 +30,7 @@ var recipeID = 0;
 var userSearch = $("#searchInput").val();
 // left and right page columns
 var searchIcon = document.getElementById("download-button");
-var rightSide = document.querySelector("#rightSide");
+// var rightSide = document.querySelector("#rightSide");
 
 var recipeID = [];
 var currentRecipeID = 0;
@@ -38,7 +38,7 @@ var currentRecipeID = 0;
 var landingPage = $(".landingPage");
 var resultsPage = $(".resultsPage");
 
-searchIcon.addEventListener("click", function() {
+function buttonClick() {
 	event.preventDefault();
 	landingPage.attr("style", "display:none;");
 	resultsPage.attr("style", "display:block;");
@@ -103,7 +103,7 @@ searchIcon.addEventListener("click", function() {
 						console.log(response.image);
 						console.log("Servings: " + response.servings);
 						for (var k = 0; k < response.extendedIngredients.length; k++) {
-							console.log("Ingredient Item: " + response.extendedIngredients[k].name);
+							console.log("Ingredient Item: " + response.extendedIngredients[k].measures.us.amount + " " + response.extendedIngredients[k].measures.us.unitShort + " " + response.extendedIngredients[k].name);
 						}
 						console.log("Instructions: " + response.instructions);
 						console.log("Source URL: " + response.sourceUrl);
@@ -112,7 +112,7 @@ searchIcon.addEventListener("click", function() {
 			});
 		}
 	});
-});
+};
 
 //This initiates the modals on the results page
 $(document).ready(function(){
