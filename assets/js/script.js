@@ -114,6 +114,10 @@ function buttonClick() {
 	});
 };
 
+//This initiates the modals on the results page
+$(document).ready(function(){
+    $('.modal').modal();
+  });
 // created filter functions and variables
 
 
