@@ -105,7 +105,7 @@ searchIcon.addEventListener("click", function() {
 	});
 });
 
-
+//This initiates the modals on the results page
 $(document).ready(function(){
     $('.modal').modal();
   });
