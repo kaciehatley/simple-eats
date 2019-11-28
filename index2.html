@@ -6,6 +6,12 @@
     <title>Simple Eats</title>
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
     <link href="assets/parallax-template/parallax-template/css/materialize.css" type="text/css" rel="stylesheet"
         media="screen,projection" />
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
@@ -28,7 +34,7 @@
             <div class="section no-pad-bot">
                 <div class="container">
                     <br><br>
-                    <h1 class="header center white-text text-lighten-3">Recipe Finder</h1>
+                    <h1 class="header center white-text text-lighten-3" style="font-weight: bold">Recipe Finder</h1>
                     <div class="row center">
                         <h5 class="header col s12 darken-2">A simple way to find recipes, build your grocery list and be more informed about your food.</h5>
                     </div>
@@ -37,7 +43,7 @@
                             height: 65px; margin-left: 25%; width:60%">
                             <input id="search" placeholder="Search Recipes Here" style="top: -20px;
                             position: absolute;
-                            left: -15%;">
+                            left: -15%; border-radius: 5px">
                             <i id="download-button"
                                 style="position: absolute; right: 10%;"
                                 class="medium material-icons" onclick="buttonClick()">search</i>
@@ -48,7 +54,7 @@
                     <br><br>
                 </div>
             </div>
-            <div class="parallax"><img src="assets/images/fresshFood.jpeg" alt="Unsplashed background img 1"></div>
+            <div class="parallax"><img src="assets/images/fresshFood.jpeg" alt="Unsplashed background img 1" class="image"></div>
         </div>
         <div class="container">
             <div class="section">
@@ -87,7 +93,7 @@
                     </div>
                 </div>
             </div>
-            <div class="parallax"><img src="assets/images/foodDisplayed.jpeg" alt="Unsplashed background img 2"></div>
+            <div class="parallax"><img src="assets/images/foodDisplayed.jpeg" alt="Unsplashed background img 2" class="image"></div>
         </div>
         <div class="container">
             <div class="section">
@@ -118,7 +124,7 @@
                     </div>
                 </div>
             </div>
-            <div class="parallax"><img src="assets/images/measurements.jpeg" alt="Unsplashed background img 3"></div>
+            <div class="parallax"><img src="assets/images/measurements.jpeg" alt="Unsplashed background img 3" class="image"></div>
         </div>
     </div>
 
@@ -192,17 +198,23 @@
         </ul>
 
         <div class="resultsDiv"></div>
-            <button class="groceryBtn waves-effect waves-light btn">Grocery List</button>
+            <button class="groceryBtn waves-effect waves-light btn"><a class="modal-trigger" style="color: white" href="#modal2">Grocery List</a></button>
             
         <img id=rpbkimg src="assets/images/fresshFood.jpeg" alt="fresh food img 1">
         <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Requested Recipe</a>
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1" id="modal1Btn">Requested Recipe</a>
 
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
             <div class="modal-content">
-                <h4>Request Recipe</h4>
-                <p>A bunch of text</p>
+                <h4 id="recipeTitle">Recipe Title</h4>
+                <p id="servings"></p>
+                <div id="ingredientList">
+                    <h6>Ingredient List:</h6>
+                </div>
+                <p id="instructions"></p>
+                <img id="recipeImg">
+                <a id="recipeURL"></a>
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
@@ -220,9 +232,9 @@
         </div>
         <div class="modal-footer">
             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            <button class="waves-effect waves-light btn">Clear Grocery List</button>
         </div>
-    </div>
-    </div>
+    </div>    </div>
 
     <footer class="page-footer teal">
         <div class="container">
@@ -246,10 +258,7 @@
     <script src="assets/parallax-template/parallax-template/js/materialize.js"></script>
     <script src="assets/parallax-template/parallax-template/js/init.js"></script>
     <script src="assets/js/script.js"></script>
-<<<<<<< HEAD
-=======
     <script src="assets/js/filter.js"></script>
->>>>>>> 675c6c3d0e773462dd230df72f60dac4abf5ed6e
 </body>
 
 </html>
