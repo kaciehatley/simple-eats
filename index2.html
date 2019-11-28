@@ -8,7 +8,8 @@
 
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="assets/parallax-template/parallax-template/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="assets/parallax-template/parallax-template/css/materialize.css" type="text/css" rel="stylesheet"
+        media="screen,projection" />
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
@@ -22,7 +23,7 @@
 
             <ul id="nav-mobile" class="sidenav">
                 <li><a href="#">Navbar Link</a></li>
-            </ul>            
+            </ul>
         </div>
     </nav>
 
@@ -156,69 +157,100 @@
         </div>
     </div>
 
-    <div class="resultsPage" >
+    <div class="resultsPage">
         <img id=rpbkimg src="assets/images/fresshFood.jpeg" alt="fresh food img 1">
-        <ul id="slide-out" class="sidenav sidenav-fixed">
-            <li>
-                <div class="input-field">
-                    <input placeholder="Search" id="filtSearch" type="text" class="validate">
-                    <label for="filter_search">Search:</label>
-                </div>
-            </li>
-            <li>
-                <div class="input-field">
-                    <select multiple>
-                        <option value="pescetarian">Pescetarian</option>
-                        <option value="lacto%20vegetarian">Lacto Vegetarian</option>
-                        <option value="ovo%20vegetarian">Ovo Vegetarian</option>
-                        <option value="vegan">Vegan</option>
-                        <option value="vegetarian">Vegetarian</option>
-                    </select>
-                    <label>Diet Options:</label>
-                </div> 
-            </li>
-            <li>
-                <div class="input-field">
-                    <input placeholder="Excluded Ingredients:" id="exclIngr" type="text" class="validate">
-                    <label for="excluded_ingredients">Excluded Ingredients:</label>
-                </div>
-            </li>
-            <li>
-                <div class="input-field">
-                    <select multiple>
-                        <option value="dairy">Dairy</option>
-                        <option value="egg">Egg</option>
-                        <option value="gluten">Gluten</option>
-                        <option value="peanut">Peanut</option>
-                        <option value="seafood">Seafood</option>
-                        <option value="sesame">Sesame</option>
-                        <option value="shellfish">Shellfish</option>
-                        <option value="soy">Soy</option>
-                        <option value="sulfite">Sulfite</option>
-                        <option value="tree%20nut">Tree Nut</option>
-                        <option value="wheat">Wheat</option>
-                    </select>
-                    <label>Are there any food intolerances or allergies?</label>
-                </div> 
-            </li>
-            <li>
-                <div class="input-field">
-                    <select multiple>
-                        <option value="main%20course">Main Course</option>
-                        <option value="side%20dish">Side Dish</option>
-                        <option value="dessert">Dessert</option>
-                        <option value="appetizer">Appetizer</option>
-                        <option value="salad">Salad</option>
-                        <option value="bread">Bread</option>
-                        <option value="breakfast">Breakfast</option>                            <option value="soup">Soup</option>
-                        <option value="beverages">Beverages</option>
-                        <option value="sauce">Sauce</option>
-                        <option value="drink">Drink</option>
-                    </select>
-                    <label>Would like you to display a specific type of recipe?</label>
-                </div>   
-            </li>
-        </ul>
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Modal Header</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
+    </div>
+
+    <ul id="slide-out" class="sidenav sidenav-fixed" style="display:none">
+        <li>
+            <div class="input-field">
+                <input placeholder="Search" id="filtSearch" type="text" class="validate">
+                <label for="filter_search">Search:</label>
+            </div>
+        </li>
+        <li>
+            <div class="input-field">
+                <select multiple>
+                    <option value="pescetarian">Pescetarian</option>
+                    <option value="lacto%20vegetarian">Lacto Vegetarian</option>
+                    <option value="ovo%20vegetarian">Ovo Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="vegetarian">Vegetarian</option>
+                </select>
+                <label>Diet Options:</label>
+            </div>
+        </li>
+        <li>
+            <div class="input-field">
+                <input placeholder="Excluded Ingredients:" id="exclIngr" type="text" class="validate">
+                <label for="excluded_ingredients">Excluded Ingredients:</label>
+            </div>
+        </li>
+        <li>
+            <div class="input-field">
+                <select multiple>
+                    <option value="dairy">Dairy</option>
+                    <option value="egg">Egg</option>
+                    <option value="gluten">Gluten</option>
+                    <option value="peanut">Peanut</option>
+                    <option value="seafood">Seafood</option>
+                    <option value="sesame">Sesame</option>
+                    <option value="shellfish">Shellfish</option>
+                    <option value="soy">Soy</option>
+                    <option value="sulfite">Sulfite</option>
+                    <option value="tree%20nut">Tree Nut</option>
+                    <option value="wheat">Wheat</option>
+                </select>
+                <label>Are there any food intolerances or allergies?</label>
+            </div>
+        </li>
+        <li>
+            <div class="input-field">
+                <select multiple>
+                    <option value="main%20course">Main Course</option>
+                    <option value="side%20dish">Side Dish</option>
+                    <option value="dessert">Dessert</option>
+                    <option value="appetizer">Appetizer</option>
+                    <option value="salad">Salad</option>
+                    <option value="bread">Bread</option>
+                    <option value="breakfast">Breakfast</option>
+                    <option value="soup">Soup</option>
+                    <option value="beverages">Beverages</option>
+                    <option value="sauce">Sauce</option>
+                    <option value="drink">Drink</option>
+                </select>
+                <label>Would like you to display a specific type of recipe?</label>
+            </div>
+        </li>
+    </ul>
+
+    <!-- Modal Trigger -->
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal2">Modal</a>
+
+    <!-- Modal Structure -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4>Modal 2 Header</h4>
+            <p>A bunch of text</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
     </div>
 
     <footer class="page-footer teal">
@@ -244,7 +276,7 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="assets/parallax-template/parallax-template/js/materialize.js"></script>
     <script src="assets/parallax-template/parallax-template/js/init.js"></script>
-
+    <script src="assets\js\script.js"></script>
 </body>
 
 </html>

@@ -21,7 +21,7 @@ var recipeID = 0;
 // input value
 var userSearch = $("#searchInput").val();
 // left and right page columns
-var searchIcon = document.querySelector(".search-icon");
+var searchIcon = document.querySelector("#download-button");
 var rightSide = document.querySelector("#rightSide");
 
 var recipeID = [];
@@ -104,3 +104,8 @@ searchIcon.addEventListener("click", function() {
 		}
 	});
 });
+
+
+$(document).ready(function(){
+    $('.modal').modal();
+  });
