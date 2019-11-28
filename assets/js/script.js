@@ -99,14 +99,16 @@ function buttonClick() {
 					console.log(event);
 					console.log(newDiv.id);
 					$.ajax(settingsC).done(function (response) {
-						console.log("Recipe Title: " + response.title);
-						console.log(response.image);
-						console.log("Servings: " + response.servings);
-						for (var k = 0; k < response.extendedIngredients.length; k++) {
-							console.log("Ingredient Item: " + response.extendedIngredients[k].measures.us.amount + " " + response.extendedIngredients[k].measures.us.unitShort + " " + response.extendedIngredients[k].name);
+						$('#recipeTitle').text(response.title);
+						$('#servings').text("Yields: " + response.servings + " servings");
+						$('#servings').attr("href", response.sourceUrl);
+						for (var h=0; h < response.extendedIngredients.length; h++) {
+							$('#ingredientList').append(response.extendedIngredients[h].measures.us.amount + " " + response.extendedIngredients[h].measures.us.unitShort + " " + response.extendedIngredients[h].name +'<i class="fas fa-plus" style="margin: 12px;padding: 2px; border: 1px solid black; border-radius: 30px;"></i>' + "<br/>");
 						}
-						console.log("Instructions: " + response.instructions);
-						console.log("Source URL: " + response.sourceUrl);
+						$('#instructions').text("Instructions: " + response.instructions);
+						$('#recipeImg').attr('src', response.image);
+						$('#recipeURL').text("Source URL: " + response.sourceUrl);
+						$('#modal1').modal('open'); 
 					});	
 				});
 			});

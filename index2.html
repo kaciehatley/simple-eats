@@ -6,6 +6,12 @@
     <title>Simple Eats</title>
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
     <link href="assets/parallax-template/parallax-template/css/materialize.css" type="text/css" rel="stylesheet"
         media="screen,projection" />
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
@@ -196,13 +202,19 @@
             
         <img id=rpbkimg src="assets/images/fresshFood.jpeg" alt="fresh food img 1">
         <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Requested Recipe</a>
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1" id="modal1Btn">Requested Recipe</a>
 
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
             <div class="modal-content">
-                <h4>Request Recipe</h4>
-                <p>A bunch of text</p>
+                <h4 id="recipeTitle">Recipe Title</h4>
+                <p id="servings"></p>
+                <div id="ingredientList">
+                    <h6>Ingredient List:</h6>
+                </div>
+                <p id="instructions"></p>
+                <img id="recipeImg">
+                <a id="recipeURL"></a>
             </div>
             <div class="modal-footer">
                 <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
