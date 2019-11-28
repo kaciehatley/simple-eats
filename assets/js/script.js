@@ -1,10 +1,18 @@
+var fSearch = document.getElementById("filterSearch");
+var fDiet = document.getElementById("dietOptions");
+var fExcluded = document.getElementById("exclIngr");
+var fAllergy = document.getElementById("allergyOptions");
+var fType = document.getElementById("mealTypeOptions");
+var fBtn = document.getElementById("filterBtn");
+
 // Event listener for drop downs
 document.addEventListener('DOMContentLoaded', function() {
 	var options = document.querySelectorAll('option');
     var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, options);
+	var instances = M.FormSelect.init(elems, options);
 })
 
+console.log($("#filterSearch").val());
 
 //search recipe
 var searchURL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5";
@@ -21,15 +29,26 @@ var recipeID = 0;
 // input value
 var userSearch = $("#searchInput").val();
 // left and right page columns
+<<<<<<< HEAD
 var searchIcon = document.querySelector("#download-button");
+=======
+var searchIcon = document.getElementById("download-button");
+>>>>>>> 675c6c3d0e773462dd230df72f60dac4abf5ed6e
 var rightSide = document.querySelector("#rightSide");
 
 var recipeID = [];
 var currentRecipeID = 0;
 
+var landingPage = $(".landingPage");
+var resultsPage = $(".resultsPage");
+
 searchIcon.addEventListener("click", function() {
+	event.preventDefault();
+	landingPage.attr("style", "display:none;");
+	resultsPage.attr("style", "display:block;");
 	recipeID = [];
-	var query = $("#searchInput").val();
+	var query = $("#search").val();
+	fSearch.value = query;
 	var settingsA = {
 		"async": true,
 		"crossDomain": true,
@@ -38,13 +57,13 @@ searchIcon.addEventListener("click", function() {
 		"headers": {
 			"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
 			"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
+		}
 	}
-}
 
 	$.ajax(settingsA).done(function (response) {
 		console.log(response);
 		for (var i=0; i < response.results.length; i++) {
-		recipeID.push(response.results[i].id);
+			recipeID.push(response.results[i].id);
 		}
 		for (var j=0; j < recipeID.length; j++) {
 			var settingsB = {
@@ -57,11 +76,9 @@ searchIcon.addEventListener("click", function() {
 					"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
 				}
 			}
-
-			var recipeIDModal = 0;
-			
 			$.ajax(settingsB).done(function (response) {
 				console.log(response);
+				var resultsDiv = document.querySelector(".resultsDiv");
 				var newDiv=document.createElement("div");
 				newDiv.setAttribute("class", "recipeDiv");
 				newDiv.setAttribute("id", response.id);
@@ -70,24 +87,21 @@ searchIcon.addEventListener("click", function() {
 				newDiv.append("Servings: " + response.servings);
 				$(newDiv).append("<br>");
 				newDiv.append("Total Time: " + response.readyInMinutes);
-				rightSide.append(newDiv);
+				resultsDiv.append(newDiv);
 
 				newDiv.addEventListener("click", function(event) {
-
-			var settingsC = {
-				"async": true,
-				"crossDomain": true,
-				"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + newDiv.id + "/information",
-				"method": "GET",
-				"headers": {
-					"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-					"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
-				}
-			}
+					var settingsC = {
+						"async": true,
+						"crossDomain": true,
+						"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + newDiv.id + "/information",
+						"method": "GET",
+						"headers": {
+							"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+							"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
+						}
+					}
 					console.log(event);
 					console.log(newDiv.id);
-					
-
 					$.ajax(settingsC).done(function (response) {
 						console.log("Recipe Title: " + response.title);
 						console.log(response.image);
@@ -97,15 +111,20 @@ searchIcon.addEventListener("click", function() {
 						}
 						console.log("Instructions: " + response.instructions);
 						console.log("Source URL: " + response.sourceUrl);
-					})
-					
+					});	
 				});
 			});
 		}
 	});
 });
 
+<<<<<<< HEAD
 //This initiates the modals on the results page
 $(document).ready(function(){
     $('.modal').modal();
   });
+=======
+// created filter functions and variables
+
+
+>>>>>>> 675c6c3d0e773462dd230df72f60dac4abf5ed6e
