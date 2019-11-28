@@ -29,11 +29,7 @@ var recipeID = 0;
 // input value
 var userSearch = $("#searchInput").val();
 // left and right page columns
-<<<<<<< HEAD
-var searchIcon = document.querySelector("#download-button");
-=======
 var searchIcon = document.getElementById("download-button");
->>>>>>> 675c6c3d0e773462dd230df72f60dac4abf5ed6e
 var rightSide = document.querySelector("#rightSide");
 
 var recipeID = [];
@@ -118,13 +114,10 @@ searchIcon.addEventListener("click", function() {
 	});
 });
 
-<<<<<<< HEAD
 //This initiates the modals on the results page
 $(document).ready(function(){
     $('.modal').modal();
   });
-=======
 // created filter functions and variables
 
 
->>>>>>> 675c6c3d0e773462dd230df72f60dac4abf5ed6e
