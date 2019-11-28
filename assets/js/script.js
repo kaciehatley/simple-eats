@@ -27,7 +27,7 @@ var searchIcon = document.querySelector("#download-button");
 var recipeID = [];
 var currentRecipeID = 0;
 
-searchIcon.addEventListener("click", function() {
+function buttonClick() {
 	recipeID = [];
 	var query = $("#search").val();
 	var settingsA = {
@@ -57,8 +57,6 @@ searchIcon.addEventListener("click", function() {
 					"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
 				}
 			}
-
-			var recipeIDModal = 0;
 			
 			$.ajax(settingsB).done(function (response) {
 				console.log(response);
@@ -94,7 +92,7 @@ searchIcon.addEventListener("click", function() {
 						console.log(response.image);
 						console.log("Servings: " + response.servings);
 						for (var k = 0; k < response.extendedIngredients.length; k++) {
-							console.log("Ingredient Item: " + response.extendedIngredients[k].name);
+							console.log("Ingredient Item: " + response.extendedIngredients[k].measures.us.amount + " " + response.extendedIngredients[k].measures.us.unitShort + " " + response.extendedIngredients[k].name);
 						}
 						console.log("Instructions: " + response.instructions);
 						console.log("Source URL: " + response.sourceUrl);
@@ -104,4 +102,4 @@ searchIcon.addEventListener("click", function() {
 			});
 		}
 	});
-});
+}
