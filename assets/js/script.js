@@ -99,11 +99,12 @@ function buttonClick() {
 					console.log(event);
 					console.log(newDiv.id);
 					$.ajax(settingsC).done(function (response) {
+
 						$('#recipeTitle').text(response.title);
 						$('#servings').text("Yields: " + response.servings + " servings");
 						$('#servings').attr("href", response.sourceUrl);
 						for (var h=0; h < response.extendedIngredients.length; h++) {
-							$('#ingredientList').append(response.extendedIngredients[h].measures.us.amount + " " + response.extendedIngredients[h].measures.us.unitShort + " " + response.extendedIngredients[h].name +'<i class="fas fa-plus" style="margin: 12px;padding: 2px; border: 1px solid black; border-radius: 30px;"></i>' + "<br/>");
+							$('#ingredientList').append(response.extendedIngredients[h].measures.us.amount + " " + response.extendedIngredients[h].measures.us.unitShort + " " + response.extendedIngredients[h].name +'<i class="fas fa-plus plusBtn" style="margin: 12px;padding: 2px; border: 1px solid black; border-radius: 30px;" data-name="' + response.extendedIngredients[h].name + '"></i><br/>');
 						}
 						$('#instructions').text("Instructions: " + response.instructions);
 						$('#recipeImg').attr('src', response.image);
@@ -116,10 +117,32 @@ function buttonClick() {
 	});
 };
 
+var groceryList = [];
+
+$('.groceryBtn').on("click", function() {
+	event.preventDefault();
+	var storedList = localStorage.getItem("groceryList");
+	groceryList = storedList;
+	for (var i= 0; i < groceryList.length; i++) {
+		$('.listItems').append('<li>' + groceryList[i] + '</li>');
+	}
+	console.log(groceryList);
+})
+
+$(document).on("click", ".plusBtn", function () {
+	event.preventDefault();
+	console.log("Hello there");
+	console.log($(this).data("name"));
+	var groceryItem = $(this).data("name");
+	groceryList.push(groceryItem);
+	localStorage.setItem("groceryList", groceryList);
+});
 //This initiates the modals on the results page
 $(document).ready(function(){
     $('.modal').modal();
   });
 // created filter functions and variables
+
+
 
 
