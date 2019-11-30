@@ -21,6 +21,18 @@
   color: #26a69a;
 }
 
+#jokeIcon:hover {
+  color: #26a69a;    
+  font-size: 65px;
+  transition: all .3s ease-in-out;
+}
+
+#groceryIcon:hover{
+  color: #26a69a;    
+  font-size: 65px;
+  transition: all .3s ease-in-out;
+}
+
 .btn:before {
     content: '';
     opacity: 0;
