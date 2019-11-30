@@ -119,24 +119,24 @@ function buttonClick() {
 
 var groceryList = [];
 
-$('.groceryBtn').on("click", function() {
-	event.preventDefault();
-	var storedList = localStorage.getItem("groceryList");
-	groceryList = storedList;
-	for (var i= 0; i < groceryList.length; i++) {
-		$('.listItems').append('<li>' + groceryList[i] + '</li>');
-	}
-	console.log(groceryList);
-})
-
 $(document).on("click", ".plusBtn", function () {
 	event.preventDefault();
 	console.log("Hello there");
 	console.log($(this).data("name"));
 	var groceryItem = $(this).data("name");
 	groceryList.push(groceryItem);
-	localStorage.setItem("groceryList", groceryList);
+	localStorage.setItem("groceryList", JSON.stringify(groceryList));
 });
+
+$('.groceryBtn').on("click", function() {
+	event.preventDefault();
+	var storedList = JSON.parse(localStorage.getItem("groceryList"));
+	groceryList = storedList;
+	for (var i= 0; i < groceryList.length; i++) {
+		$('.listItems').append('<li>' + groceryList[i] + '</li>');
+	}
+	console.log(groceryList);
+})
 //This initiates the modals on the results page
 $(document).ready(function(){
     $('.modal').modal();
