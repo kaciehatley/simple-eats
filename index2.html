@@ -88,26 +88,26 @@
             <div class="section no-pad-bot">
                 <div class="container">
                     <div class="row center">
-                        <h5 class="header col s12 darken-2">Enjoy making it from scratch!
+                        <h5 class="header col s12 darken-2" style="letter-spacing: 3px; font-size: 38px">Enjoy making it from scratch!
                         </h5>
                     </div>
                 </div>
             </div>
-            <div class="parallax"><img src="assets/images/foodDisplayed.jpeg" alt="Unsplashed background img 2" class="image"></div>
+            <div class="parallax"><img src="assets/images/aroma-chili-condiments-cook-357743.jpg" style="width: 100%" alt="Unsplashed background img 2" class="image"></div>
         </div>
         <div class="container">
             <div class="section">
                 <div class="row">
                     <div class="col s12 m6">
                         <div class="icon-block">
-                            <h2 class="center  purple-text"><i class="material-icons">tag_faces</i></h2>
+                            <h2 class="center  purple-text"><i class="material-icons" id="jokeIcon">tag_faces</i></h2>
                             <h5 class="center">Foodie Jokes</h5>
-                            <p class="center light">Here's something on the lighter side with ZERO caloires...</p>
+                            <p class="center light" id="foodJoke">Here's something on the lighter side with ZERO caloires...</p>
                         </div>
                     </div>
                     <div class="col s12 m6">
                         <div class="icon-block">
-                            <h2 class="center  purple-text"><i class="material-icons">add_shopping_cart</i></h2>
+                            <h2 class="center  purple-text"><i class="material-icons" id="groceryIcon">add_shopping_cart</i></h2>
                             <h5 class="center">Grocery List</h5>
                             <p class="center light">Create and keep your grocery list handy. You can add to your list right from your recipe.</p>
                         </div>
@@ -119,17 +119,17 @@
             <div class="section no-pad-bot">
                 <div class="container">
                     <div class="row center">
-                        <h5 class="header col s12 darken-2">Understand the nutrition behind your food.
+                        <h5 class="header col s12 darken-2" style="letter-spacing: 3px; font-size: 38px">Understand the nutrition behind your food.
                         </h5>
                     </div>
                 </div>
             </div>
-            <div class="parallax"><img src="assets/images/measurements.jpeg" alt="Unsplashed background img 3" class="image"></div>
+            <div class="parallax"><img src="assets/images/dough-and-flour-near-lemons-and-rolling-pin-1070880.jpg" style="width: 100%"  alt="Unsplashed background img 3" class="image"></div>
         </div>
     </div>
 
     <div class="resultsPage">
-        <ul id="slide-out" class="sidenav sidenav-fixed">
+        <ul id="slide-out" class="sidenav">
             <li>
                 <div class="input-field dropDivs">
                     <label>
@@ -197,16 +197,17 @@
             </li>
         </ul>
 
-        <div class="resultsDiv"></div>
+        <div class="row resultsDiv"></div>
+                                     
             <button class="groceryBtn waves-effect waves-light btn"><a class="modal-trigger" style="color: white" href="#modal2">Grocery List</a></button>
+            <button class="collapseBtn waves-effect waves-light btn"><a data-target="slide-out" class="sidenav-trigger" style="color: white">Display Search Filters</a></button>
             
         <img id=rpbkimg src="assets/images/fresshFood.jpeg" alt="fresh food img 1">
-        <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn modal-trigger" href="#modal1" id="modal1Btn">Requested Recipe</a>
 
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
             <div class="modal-content">
+                <p class="addedAlert waves-effect waves-light btn"></p>
                 <h4 id="recipeTitle">Recipe Title</h4>
                 <p id="servings"></p>
                 <div id="ingredientList">
@@ -217,19 +218,19 @@
                 <a id="recipeURL"></a>
             </div>
             <div class="modal-footer">
-                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
             </div>
         </div>
-        
+
         <!-- Modal Structure -->
         <div id="modal2" class="modal">
         <div class="modal-content">
             <h4>Grocery List</h4>
-            <ul class="listItems">A bunch of text</ul>
+            <ul class="listItems"></ul>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-            <button class="waves-effect waves-light btn">Clear Grocery List</button>
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
+            <button class="waves-effect waves-light btn" id = "clearList">Clear Grocery List</button>
         </div>
     </div>    </div>
 
