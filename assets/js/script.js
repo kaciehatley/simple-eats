@@ -40,6 +40,26 @@ var currentRecipeID = 0;
 var landingPage = $(".landingPage");
 var resultsPage = $(".resultsPage");
 
+// Food jokes
+
+var settings = {
+	"async": true,
+	"crossDomain": true,
+	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/random",
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+		"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
+	}
+}
+
+$('#jokeIcon').on("click", function(){
+	$.ajax(settings).done(function (response) {
+		$('#foodJoke').text("");
+		$('#foodJoke').text(response.text);
+	});
+})
+
 function buttonClick() {
 	event.preventDefault();
 	landingPage.attr("style", "display:none;");
