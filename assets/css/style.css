@@ -154,13 +154,15 @@ footer.page-footer {
   height: 25px;
 }
 
-.recipeDiv {
-  margin: 20px;
-  border: 1px solid black;
-  background-color: white;
+/* .recipeDiv {
+  width: 70%;
+  margin: 20px auto;
+  background-color: #26a69a;
   padding: 8px;
-  text-align: right;
-}
+  text-align: left;
+  border-radius: 5px;
+  color: white;
+} */
 
 .groceryBtn {
   background-color: #26a69a;
@@ -169,6 +171,7 @@ footer.page-footer {
   right: 10px;
   border: 1px solid white;
   border-radius: 5px;
+  z-index: 3;
 }
 .addedAlert {
   position: fixed;
@@ -183,8 +186,22 @@ footer.page-footer {
   right: 10px;
   border: 1px solid white;
   border-radius: 5px;
+  z-index: 3;
 }
 
 .image {
   filter: brightness(50%);
+}
+
+.cardImg {
+  filter: brightness(50%);
+}
+
+.cardDiv {
+  position: relative;
+  z-index: 2;
+}
+
+.resultsDiv {
+  position: absolute;
 }

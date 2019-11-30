@@ -83,7 +83,7 @@ function buttonClick() {
 	var settingsA = {
 		"async": true,
 		"crossDomain": true,
-		"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=5&offset=0&query=" + query,
+		"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?number=6&offset=0&query=" + query,
 		"method": "GET",
 		"headers": {
 			"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
@@ -110,21 +110,49 @@ function buttonClick() {
 			$.ajax(settingsB).done(function (response) {
 				console.log(response);
 				var resultsDiv = document.querySelector(".resultsDiv");
-				var newDiv=document.createElement("div");
-				newDiv.setAttribute("class", "recipeDiv");
-				newDiv.setAttribute("id", response.id);
-				newDiv.append("Recipe Name: " + response.title);
-				$(newDiv).append("<br>");
-				newDiv.append("Servings: " + response.servings);
-				$(newDiv).append("<br>");
-				newDiv.append("Total Time: " + response.readyInMinutes);
-				resultsDiv.append(newDiv);
+				var cardDiv = document.createElement("div");
+				var createCardDiv = document.createElement("div");
+				var cardImgDiv = document.createElement("div");
+				var cardContentDiv = document.createElement("div");
+				var cardImg = document.createElement("img");
+				var cardTitle = document.createElement("span");
+				var cardContent = document.createElement("p");
 
-				newDiv.addEventListener("click", function(event) {
+				cardDiv.setAttribute("id", response.id);
+				cardDiv.setAttribute("class", "col s6 m4 cardDiv");
+				createCardDiv.setAttribute("class", "card");
+				cardImgDiv.setAttribute("class", "card-image");
+				cardContentDiv.setAttribute("class", "card-content");
+				cardImg.setAttribute("src", response.image);
+				cardImg.setAttribute("class", "cardImg");
+				cardTitle.setAttribute("class", "card-title");
+				cardTitle.innerHTML = response.title;
+				cardContent.innerHTML = "<b>Servings: </b>" + response.servings + "<br>" + "<b>Total Time: </b>" + response.readyInMinutes + "<br>" + "<b>Source: </b>" + response.sourceName + "<br>" +"<b>Health Score: </b>" + response.healthScore;
+
+				cardImgDiv.appendChild(cardImg);
+				cardImgDiv.appendChild(cardTitle);
+				cardContentDiv.appendChild(cardContent);
+				createCardDiv.appendChild(cardImgDiv);
+				createCardDiv.appendChild(cardContentDiv);
+				cardDiv.appendChild(createCardDiv);
+				resultsDiv.appendChild(cardDiv);
+
+
+				// var newDiv=document.createElement("div");
+				// newDiv.setAttribute("class", "recipeDiv");
+				// newDiv.setAttribute("id", response.id);
+				// newDiv.append("Recipe Name: " + response.title);
+				// $(newDiv).append("<br>");
+				// newDiv.append("Servings: " + response.servings);
+				// $(newDiv).append("<br>");
+				// newDiv.append("Total Time: " + response.readyInMinutes);
+				// resultsDiv.append(newDiv);
+
+				cardDiv.addEventListener("click", function(event) {
 					var settingsC = {
 						"async": true,
 						"crossDomain": true,
-						"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + newDiv.id + "/information",
+						"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + cardDiv.id + "/information",
 						"method": "GET",
 						"headers": {
 							"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
@@ -132,7 +160,7 @@ function buttonClick() {
 						}
 					}
 					console.log(event);
-					console.log(newDiv.id);
+					console.log(cardDiv.id);
 					$.ajax(settingsC).done(function (response) {
 
 						$('#recipeTitle').text(response.title);
