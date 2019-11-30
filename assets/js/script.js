@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	var options = document.querySelectorAll('option');
     var elems = document.querySelectorAll('select');
 	var instances = M.FormSelect.init(elems, options);
+	$('.addedAlert').attr("style", "display: none");
 })
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -138,7 +139,7 @@ function buttonClick() {
 						$('#servings').text("Yields: " + response.servings + " servings");
 						$('#servings').attr("href", response.sourceUrl);
 						for (var h=0; h < response.extendedIngredients.length; h++) {
-							$('#ingredientList').append(response.extendedIngredients[h].measures.us.amount + " " + response.extendedIngredients[h].measures.us.unitShort + " " + response.extendedIngredients[h].name +'<i class="fas fa-plus plusBtn" style="margin: 12px;padding: 2px; border: 1px solid black; border-radius: 30px;" data-name="' + response.extendedIngredients[h].name + '"></i><br/>');
+							$('#ingredientList').append(response.extendedIngredients[h].measures.us.amount + " " + response.extendedIngredients[h].measures.us.unitShort + " " + response.extendedIngredients[h].name +'<i class="fas fa-plus plusBtn circle" data-name="' + response.extendedIngredients[h].name + '"></i><br/>');
 						}
 						$('#instructions').text("Instructions: " + response.instructions);
 						$('#recipeImg').attr('src', response.image);
@@ -151,6 +152,12 @@ function buttonClick() {
 	});
 };
 
+function pTagDelay() {
+	setTimeout(function () {
+		$('.addedAlert').attr("style", "display: none");
+	}, 1000);
+}
+
 $(document).on("click", ".plusBtn", function () {
 	event.preventDefault();
 	// console.log("Hello there");
@@ -158,6 +165,9 @@ $(document).on("click", ".plusBtn", function () {
 	var groceryItem = $(this).data("name");
 	groceryList.push(groceryItem);
 	localStorage.setItem("groceryList", JSON.stringify(groceryList));
+	$('.addedAlert').attr("style", "display: block");
+	$('.addedAlert').text("Added To Grocery List!");
+	pTagDelay();
 });
 
 $('.groceryBtn').on("click", function() {

@@ -33,6 +33,21 @@
   transition: all .3s ease-in-out;
 }
 
+.plusBtn {
+  background-color: #26a69a;
+  color: white;
+  margin: 12px;
+  padding: 5px;
+}
+
+.plusBtn:hover {
+  color: #26a69a;    
+  font-size: 25px;
+  transition: all .3s ease-in-out;
+  border: none;
+  background-color: transparent;
+}
+
 .btn:before {
     content: '';
     opacity: 0;
@@ -154,6 +169,11 @@ footer.page-footer {
   right: 10px;
   border: 1px solid white;
   border-radius: 5px;
+}
+.addedAlert {
+  position: fixed;
+  top: 5px;
+  right: 5px;
 }
 
 .collapseBtn {
