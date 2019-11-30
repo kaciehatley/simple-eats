@@ -10,7 +10,9 @@ var groceryList = [];
 // Event listener for drop downs
 document.addEventListener('DOMContentLoaded', function() {
 	var renderList = JSON.parse(localStorage.getItem("groceryList"));
-	groceryList = renderList;
+	if (renderList !== null) {
+		groceryList = renderList;
+	}
 	var options = document.querySelectorAll('option');
     var elems = document.querySelectorAll('select');
 	var instances = M.FormSelect.init(elems, options);
@@ -119,7 +121,7 @@ function buttonClick() {
 				var cardContent = document.createElement("p");
 
 				cardDiv.setAttribute("id", response.id);
-				cardDiv.setAttribute("class", "col s6 m4 cardDiv");
+				cardDiv.setAttribute("class", "col s12 m4 cardDiv");
 				createCardDiv.setAttribute("class", "card");
 				cardImgDiv.setAttribute("class", "card-image");
 				cardContentDiv.setAttribute("class", "card-content");
@@ -165,7 +167,6 @@ function buttonClick() {
 
 						$('#recipeTitle').text(response.title);
 						$('#servings').text("Yields: " + response.servings + " servings");
-						$('#servings').attr("href", response.sourceUrl);
 						for (var h=0; h < response.extendedIngredients.length; h++) {
 							$('#ingredientList').append(response.extendedIngredients[h].measures.us.amount + " " + response.extendedIngredients[h].measures.us.unitShort + " " + response.extendedIngredients[h].name +'<i class="fas fa-plus plusBtn circle" data-name="' + response.extendedIngredients[h].name + '"></i><br/>');
 						}
