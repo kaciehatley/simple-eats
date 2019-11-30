@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', function() {
 	var options = document.querySelectorAll('option');
     var elems = document.querySelectorAll('select');
 	var instances = M.FormSelect.init(elems, options);
+	var storedList = JSON.parse(localStorage.getItem("groceryList"));
+	groceryList = storedList;
 })
 
 console.log($("#filterSearch").val());
@@ -118,10 +120,9 @@ function buttonClick() {
 };
 
 var groceryList = [];
-
 $(document).on("click", ".plusBtn", function () {
 	event.preventDefault();
-	console.log("Hello there");
+	// console.log("Hello there");
 	console.log($(this).data("name"));
 	var groceryItem = $(this).data("name");
 	groceryList.push(groceryItem);
@@ -130,6 +131,7 @@ $(document).on("click", ".plusBtn", function () {
 
 $('.groceryBtn').on("click", function() {
 	event.preventDefault();
+	$('.listItems').text("");
 	var storedList = JSON.parse(localStorage.getItem("groceryList"));
 	groceryList = storedList;
 	for (var i= 0; i < groceryList.length; i++) {
@@ -137,6 +139,14 @@ $('.groceryBtn').on("click", function() {
 	}
 	console.log(groceryList);
 })
+
+$('#clearList').on("click", function() {
+	event.preventDefault();
+	$('.listItems').text("");
+	localStorage.clear();
+})
+
+
 //This initiates the modals on the results page
 $(document).ready(function(){
     $('.modal').modal();
