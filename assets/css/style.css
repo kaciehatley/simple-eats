@@ -150,6 +150,15 @@ footer.page-footer {
 .groceryBtn {
   background-color: #26a69a;
   position: fixed;
+  bottom: 50px;
+  right: 10px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.collapseBtn {
+  background-color: #26a69a;
+  position: fixed;
   bottom: 10px;
   right: 10px;
   border: 1px solid white;

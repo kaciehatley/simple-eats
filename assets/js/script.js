@@ -5,14 +5,26 @@ var fAllergy = document.getElementById("allergyOptions");
 var fType = document.getElementById("mealTypeOptions");
 var fBtn = document.getElementById("filterBtn");
 
+var groceryList = [];
+
 // Event listener for drop downs
 document.addEventListener('DOMContentLoaded', function() {
+	var renderList = JSON.parse(localStorage.getItem("groceryList"));
+	groceryList = renderList;
 	var options = document.querySelectorAll('option');
     var elems = document.querySelectorAll('select');
 	var instances = M.FormSelect.init(elems, options);
-	var storedList = JSON.parse(localStorage.getItem("groceryList"));
-	groceryList = storedList;
 })
+
+document.addEventListener('DOMContentLoaded', function() {
+	var options = document.querySelectorAll('option');
+    var elems = document.querySelectorAll('.sidenav');
+	var instances = M.Sidenav.init(elems, options);
+	
+	$('.collapseBtn').on("click", function() {
+		$('.sidenav').sidenav();
+	})
+  });
 
 console.log($("#filterSearch").val());
 
@@ -139,7 +151,6 @@ function buttonClick() {
 	});
 };
 
-var groceryList = [];
 $(document).on("click", ".plusBtn", function () {
 	event.preventDefault();
 	// console.log("Hello there");
