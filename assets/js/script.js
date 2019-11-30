@@ -214,6 +214,7 @@ $('#clearList').on("click", function() {
 	event.preventDefault();
 	$('.listItems').text("");
 	localStorage.clear();
+	groceryList = [];
 })
 
 
