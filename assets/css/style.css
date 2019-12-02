@@ -144,16 +144,30 @@ footer.page-footer {
 .resultsPage {
   display: none;
 }
+.dropDivs {
+  /* padding: 10px !important; */
+  line-height: 1 !important;
+  margin-top: 0px;
+  padding-top: 0px;
+}
 .dropLabel {
-  color:white;
-  font-size: 14px;
-  margin: 0px;
-  padding: 0px;
+  color:white !important; 
+  font-size: 18px !important;
+}
+#srchLabel {
+  padding: 0px !important;
+  margin: 0px !important;
+
 }
 #filterSearch {
-  height: 25px;
+  padding: 0px !important;
+  margin: 0px !important;
 }
-
+#filterBtn {
+  background-color: white !important;
+  color: #26a69a !important;
+  margin: 10px 10px;
+}
 /* .recipeDiv {
   width: 70%;
   margin: 20px auto;

@@ -47,14 +47,17 @@ function filterList() {
 		if (optD.selected) {
 			// add to array of option elements to return from this function
 			dietOpts.push(optD.value);
+			console.log("Diet option selected: " + optD.value);
 		}
-		console.log(dietOpts); // runs 5 times
 	}
 
+	var exclVal;
 	// filter excluded items
-	var exclVal = fExcluded.value;
-	console.log(exclVal);
-	
+
+	if (fExcluded.value !== null) {
+		exclVal = fExcluded.value;
+		console.log("Excluded option selected: " + fExcluded.value);
+	}
 
 	// filter allergy
 	var allergyOpts = [];
@@ -65,6 +68,8 @@ function filterList() {
 		if (optA.selected) {
 			// add to array of option elements to return from this function
 			allergyOpts.push(optA.value);
+			console.log("Intolerance option selected: " + optA.value);
+
 		}
 	}
 
@@ -77,20 +82,13 @@ function filterList() {
 		if (optT.selected) {
 			// add to array of option elements to return from this function
 			typeOpts.push(optT.value);
+			console.log("Type option selected: " + optT.value);
 		}
 	}
 	
 
 	// run search
 	recipeID = [];
-	
-	console.log(query);
-	// console.log(settingsA.url);
-	
-	console.log(dietOpts);
-	console.log(exclVal);
-	console.log(allergyOpts);
-	console.log(typeOpts);
 
 	var settingsA = {
 		"async": true,
@@ -110,16 +108,17 @@ function filterList() {
 		var lastOptD = dietOpts.length - 1;
 		for (var i=0; i<dietOpts.length - 1; i++) {
 			settingsA.url += dietOpts[i] + "%252C%20";
-			console.log(settingsA.url);
 		}
 		settingsA.url += dietOpts[lastOptD];
+		console.log("Diet option filtered: " + dietOpts);
+
 	}
 	if (exclVal !== null) {
 		settingsA.url += excludeFilter + exclVal;
+		console.log("Excl option filtered: " + exclVal);
 	}
-	console.log(exclVal);
 
-	if (allergyOpts !== null || allergyOpts !== []) {
+	if (allergyOpts !== null) {
 		// add to url
 		settingsA.url += intoleranceFilter;
 		var lastOptA = dietOpts.length - 1;
@@ -127,8 +126,9 @@ function filterList() {
 			settingsA.url += allergyOpts[j] + "%252C%20";
 		}
 		settingsA.url += allergyOpts[lastOptA];
+		console.log("Intol option filtered: " + allergyOpts);
+
 	}
-	console.log(allergyOpts);
 
 	settingsA.url += "&number=6&offset=0";
 
@@ -139,13 +139,16 @@ function filterList() {
 		for (var j=0; j < typeOpts.length -1; i++) {
 			settingsA.url += typeOpts[j] + "%252C%20";
 		}
-		settingsA.url += typeOpts[lastOptT]
+		settingsA.url += typeOpts[lastOptT];
+		console.log("Type option filtered: " + typeOpts);
+
 	}
-	console.log(typeOpts);
 
 	settingsA.url += "&query=" + query;
+	console.log("Query option filtered: " + query);
+
 	console.log(settingsA.url);
-	console.log(query);
+	
 	$.ajax(settingsA).done(function (response) {
 		console.log(response);
 		console.log(response.totalResults);
@@ -156,6 +159,8 @@ function filterList() {
 		for (var i=0; i < response.results.length; i++) {
 			recipeID.push(response.results[i].id);
 		}
+		var resultsDiv = document.querySelector(".resultsDiv");
+		$(resultsDiv).empty();
 
 		for (var j=0; j < recipeID.length; j++) {
 			var settingsB = {
@@ -170,7 +175,6 @@ function filterList() {
 			}
 			$.ajax(settingsB).done(function (response) {
 				console.log(response);
-				var resultsDiv = document.querySelector(".resultsDiv");
 				var cardDiv = document.createElement("div");
 				var createCardDiv = document.createElement("div");
 				var cardImgDiv = document.createElement("div");
