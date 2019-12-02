@@ -131,13 +131,12 @@
     <div class="resultsPage">
         <ul id="slide-out" class="sidenav">
             <li>
+                <p label class="dropLabel" id="srchLabel">Search:</p>
                 <div class="input-field dropDivs">
-                    <label>
-                        <h3 class="dropLabel">Search:</h3>
-                    </label>
                     <input id="filterSearch" type="text" class="validate">
                 </div>
             </li>
+            <br>
             <li>
                 <div class="input-field dropDivs">
                     <select multiple id="dietOptions">
@@ -147,15 +146,17 @@
                         <option value="vegan">Vegan</option>
                         <option value="vegetarian">Vegetarian</option>
                     </select>
-                    <label><h3 class="dropLabel">Diet Options:</h3></label>
+                    <label class="dropLabel">Diet Options:</label>
                 </div> 
             </li>
+            <br>
             <li>
                 <div class="input-field dropDivs">
                     <input id="exclIngr" type="text" class="validate">
-                    <label><h3 class="dropLabel">Excluded Ingredients:</h3></label>
+                    <label class="dropLabel">Excluded Ingredients:</label>
                 </div>
             </li>
+            <br>
             <li>
                 <div class="input-field dropDivs">
                     <select multiple id="allergyOptions">
@@ -171,9 +172,10 @@
                         <option value="tree%20nut">Tree Nut</option>
                         <option value="wheat">Wheat</option>
                     </select>
-                    <label><h3 class="dropLabel">Are there any food intolerances or allergies?</h3></label>
+                    <label class="dropLabel">Are there any food intolerances or allergies?</label>
                 </div> 
             </li>
+            <br>
             <li>
                 <div class="input-field dropDivs">
                     <select multiple id="mealTypeOptions">
@@ -189,11 +191,11 @@
                         <option value="sauce">Sauce</option>
                         <option value="drink">Drink</option>
                     </select>
-                    <label><h3 class="dropLabel">Would like you to display a specific type of recipe?</h3></label>
+                    <label class="dropLabel">Would like you to display a specific type of recipe?</label>
                 </div>   
             </li>
             <li>
-                <button id="filterBtn" onclick="filterList()">Search</button>
+                <button class="waves-effect waves-light btn" id="filterBtn" onclick="filterList()">Search</button>
             </li>
         </ul>
 
