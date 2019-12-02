@@ -82,14 +82,14 @@ p {
 }
 .parallax-container .section {
     width: 100%;
+    height: auto;
 }
   
 #logo-container {
   font-weight: bold;
 }  
 
-#search {
-  /* width:75%; */
+#search {  
   background-color: white;
   color: black;
   font-size: 25px;
@@ -104,6 +104,7 @@ p {
 #rpbkimg {
   opacity: 0.2;
   filter: alpha(opacity=50);
+  height: auto;
 }
 
   header, main, footer {
@@ -218,5 +219,7 @@ footer.page-footer {
 }
 
 .resultsDiv {
-  position: absolute;
+  position: absolute;  
 }
+
+

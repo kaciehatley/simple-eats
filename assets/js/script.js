@@ -222,7 +222,6 @@ $('#clearList').on("click", function() {
 $(document).ready(function(){
     $('.modal').modal();
   });
-// created filter functions and variables
 
 
 
