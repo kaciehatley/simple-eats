@@ -121,14 +121,19 @@ function buttonClick() {
 				var cardContent = document.createElement("p");
 
 				cardDiv.setAttribute("id", response.id);
-				cardDiv.setAttribute("class", "col s12 m4 cardDiv");
+				cardDiv.setAttribute("class", "col s12 m6 l4 cardDiv");
 				createCardDiv.setAttribute("class", "card");
 				cardImgDiv.setAttribute("class", "card-image");
 				cardContentDiv.setAttribute("class", "card-content");
 				cardImg.setAttribute("src", response.image);
 				cardImg.setAttribute("class", "cardImg");
 				cardTitle.setAttribute("class", "card-title");
-				cardTitle.innerHTML = response.title;
+				var split=response.title.split("#");
+				var title = split[0];
+				for(var i = 1; i < split.length; i++) {
+					title = title + '<span class="hashtag">#' + split[i] + '</span>';
+					}
+				cardTitle.innerHTML = title;
 				cardContent.innerHTML = "<b>Servings: </b>" + response.servings + "<br>" + "<b>Total Time: </b>" + response.readyInMinutes + "<br>" + "<b>Source: </b>" + response.sourceName + "<br>" +"<b>Health Score: </b>" + response.healthScore;
 
 				cardImgDiv.appendChild(cardImg);
