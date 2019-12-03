@@ -100,7 +100,7 @@ function filterList() {
 			"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
 		}
 	}
-	if (dietOpts !== null || dietOpts !== []) {
+	if (dietOpts.length > 0) {
 		// add to url
 		settingsA.url += dietFilter;
 		// settingsA.url += dietFilter + dietOpts;
@@ -113,12 +113,12 @@ function filterList() {
 		console.log("Diet option filtered: " + dietOpts);
 
 	}
-	if (exclVal !== null) {
+	if (exclVal.length > 0) {
 		settingsA.url += excludeFilter + exclVal;
 		console.log("Excl option filtered: " + exclVal);
 	}
 
-	if (allergyOpts !== null) {
+	if (allergyOpts.length > 0) {
 		// add to url
 		settingsA.url += intoleranceFilter;
 		var lastOptA = dietOpts.length - 1;
@@ -132,7 +132,7 @@ function filterList() {
 
 	settingsA.url += "&number=6&offset=0";
 
-	if (typeOpts !== null || typeOpts !== []) {
+	if (typeOpts.length > 0) {
 		// add to url
 		settingsA.url += recipeType;
 		var lastOptT = typeOpts.length - 1;
@@ -191,7 +191,13 @@ function filterList() {
 				cardImg.setAttribute("src", response.image);
 				cardImg.setAttribute("class", "cardImg");
 				cardTitle.setAttribute("class", "card-title");
-				cardTitle.innerHTML = response.title;
+
+				var split=response.title.split("#");
+				var title = split[0];
+				for(var i = 1; i < split.length; i++) {
+					title = title + '<span class="hashtag">#' + split[i] + '</span>';
+				}
+				cardTitle.innerHTML = title;
 				cardContent.innerHTML = "<b>Servings: </b>" + response.servings + "<br>" + "<b>Total Time: </b>" + response.readyInMinutes + "<br>" + "<b>Source: </b>" + response.sourceName + "<br>" +"<b>Health Score: </b>" + response.healthScore;
 
 				cardImgDiv.appendChild(cardImg);
