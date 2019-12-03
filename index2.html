@@ -6,21 +6,16 @@
     <title>Simple Eats</title>
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <link href="assets/parallax-template/parallax-template/css/materialize.css" type="text/css" rel="stylesheet"
-        media="screen,projection" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="assets/parallax-template/parallax-template/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
 <body>
-    <nav class="white" role="navigation">
+    <!-- <nav class="white" role="navigation"> works without having role. clears validator.-->
+    <nav class="white">
         <div class="nav-wrapper container">
-            <a id="logo-container" href="#" class="brand-logo">Simple Eats</a>
+            <a id="logo-container" href="#" onclick="window.location.reload(true)" class="brand-logo">Simple Eats</a>
             <ul class="right hide-on-med-and-down">
                 <li><a id="hmpgNav" style="display:none" href="#">Navbar Link</a></li>
             </ul>
@@ -61,24 +56,24 @@
                 <!--   Icon Section   -->
                 <div class="row">
                     <div class="col s12 m4">
-                        <div class="icon-block">
+                        <div class="icon-block" id="recipeEl0">
                             <!-- <h2 class="center  purple-text"><i class="material-icons">restaurant</i></h2> -->
-                            <h5 class="center">Suggested Recipes</h5>
-                            <p class="light">We have pulled some of the best recipes for you to enjoy. Included with your recipe is a list of ingriedents, instructions and nutrtional information.</p>
+                            <!-- <h5 class="center" id="recipe0">Suggested Recipes</h5> -->
+                            <!-- <p class="light">We have pulled some of the best recipes for you to enjoy. Included with your recipe is a list of ingriedents, instructions and nutrtional information.</p> -->
                         </div>
                     </div>
                     <div class="col s12 m4">
-                        <div class="icon-block">
+                        <div class="icon-block" id="recipeEl1">
                             <!-- <h2 class="center  purple-text"><i class="material-icons">restaurant</i></h2> -->
-                            <h5 class="center">Suggested Recipes</h5>
-                            <p class="light">We have pulled some of the best recipes for you to enjoy. Included with your recipe is a list of ingriedents, instructions and nutrtional information.</p>
+                            <!-- <h5 class="center" id="recipe1">Suggested Recipes</h5> -->
+                            <!-- <p class="light">We have pulled some of the best recipes for you to enjoy. Included with your recipe is a list of ingriedents, instructions and nutrtional information.</p> -->
                         </div>
                     </div>
                     <div class="col s12 m4">
-                        <div class="icon-block">
+                        <div class="icon-block" id="recipeEl2">
                             <!-- <h2 class="center  purple-text"><i class="material-icons">restaurant</i></h2> -->
-                            <h5 class="center">Suggested Recipes</h5>
-                            <p class="light">We have pulled some of the best recipes for you to enjoy. Included with your recipe is a list of ingriedents, instructions and nutrtional information.</p>
+                            <!-- <h5 class="center" id="recipe2">Suggested Recipes</h5> -->
+                            <!-- <p class="light">We have pulled some of the best recipes for you to enjoy. Included with your recipe is a list of ingriedents, instructions and nutrtional information.</p> -->
                         </div>
                     </div>
                 </div>
@@ -131,12 +126,11 @@
     <div class="resultsPage">
         <ul id="slide-out" class="sidenav">
             <li>
-                <p label class="dropLabel" id="srchLabel">Search:</p>
+                <p class="dropLabel" id="srchLabel">Search:</p>
                 <div class="input-field dropDivs">
                     <input id="filterSearch" type="text" class="validate">
                 </div>
             </li>
-            <br>
             <li>
                 <div class="input-field dropDivs">
                     <select multiple id="dietOptions">
@@ -149,14 +143,12 @@
                     <label class="dropLabel">Diet Options:</label>
                 </div> 
             </li>
-            <br>
             <li>
                 <div class="input-field dropDivs">
                     <input id="exclIngr" type="text" class="validate">
                     <label class="dropLabel">Excluded Ingredients:</label>
                 </div>
             </li>
-            <br>
             <li>
                 <div class="input-field dropDivs">
                     <select multiple id="allergyOptions">
@@ -175,7 +167,6 @@
                     <label class="dropLabel">Are there any food intolerances or allergies?</label>
                 </div> 
             </li>
-            <br>
             <li>
                 <div class="input-field dropDivs">
                     <select multiple id="mealTypeOptions">
@@ -204,8 +195,6 @@
             <!-- <img id=rpbkimg class="responsive-img" src="assets/images/fresshFood.jpeg" alt="fresh food img 1">                           -->
             <button class="groceryBtn waves-effect waves-light btn"><a class="modal-trigger" style="color: white" href="#modal2">Grocery List</a></button>
             <button class="collapseBtn waves-effect waves-light btn"><a data-target="slide-out" class="sidenav-trigger" style="color: white">Display Search Filters</a></button>
-            
-        
 
         <!-- Modal Structure -->
         <div id="modal1" class="modal">
