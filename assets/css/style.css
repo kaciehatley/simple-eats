@@ -1,4 +1,6 @@
 /* Custom Stylesheet */
+
+
 /**
  * Use this file to override Materialize files so you can update
  * the core Materialize files in the future
@@ -7,51 +9,52 @@
  */
 
 
- /*these 3 btn calls are to help with hover buttons and will need the class "btn" added to each button that needs this hover effect*/
- .btn {
-  overflow: hidden;
+/*these 3 btn calls are to help with hover buttons and will need the class "btn" added to each button that needs this hover effect*/
+
+.btn {
+    overflow: hidden;
 }
 
 #download-button {
-  color: black;
+    color: black;
 }
 
 #download-button:hover {
-  opacity:1;
-  color: #26a69a;
+    opacity: 1;
+    color: #26a69a;
 }
 
 #jokeIcon:hover {
-  color: #26a69a;    
-  font-size: 65px;
-  transition: all .3s ease-in-out;
+    color: #26a69a;
+    font-size: 65px;
+    transition: all .3s ease-in-out;
 }
 
-#groceryIcon:hover{
-  color: #26a69a;    
-  font-size: 65px;
-  transition: all .3s ease-in-out;
+#groceryIcon:hover {
+    color: #26a69a;
+    font-size: 65px;
+    transition: all .3s ease-in-out;
 }
 
 .plusBtn {
-  background-color: #26a69a;
-  color: white;
-  margin: 12px;
-  padding: 5px;
+    background-color: #26a69a;
+    color: white;
+    margin: 12px;
+    padding: 5px;
 }
 
 .plusBtn:hover {
-  color: #26a69a;    
-  font-size: 25px;
-  transition: all .3s ease-in-out;
-  border: none;
-  background-color: transparent;
+    color: #26a69a;
+    font-size: 25px;
+    transition: all .3s ease-in-out;
+    border: none;
+    background-color: transparent;
 }
 
 .btn:before {
     content: '';
     opacity: 0;
-    background-color: rgba(0,0,0,.6);
+    background-color: rgba(0, 0, 0, .6);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -63,111 +66,133 @@
 
 nav ul a,
 nav .brand-logo {
-  color: #26a69a;  
+    color: #26a69a;
 }
 
 p {
-  line-height: 2rem;
+    line-height: 2rem;
 }
 
 .sidenav-trigger {
-  color: #26a69a;
+    color: #26a69a;
 }
 
 .parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255,255,255,.9);
+    min-height: 380px;
+    line-height: 0;
+    height: auto;
+    color: rgba(255, 255, 255, .9);
 }
+
 .parallax-container .section {
     width: 100%;
+    height: auto;
 }
-  
+
 #logo-container {
-  font-weight: bold;
-}  
+    font-weight: bold;
+}
 
 #search {
-  /* width:75%; */
-  background-color: white;
-  color: black;
-  font-size: 25px;
-  padding:10px;
-  margin: 20px;     
+    background-color: white;
+    color: black;
+    font-size: 25px;
+    padding: 10px;
+    margin: 20px;
 }
 
 #slide-out {
-  background-color: #26a69a;  
-  }
+    background-color: #26a69a;
+}
 
 #rpbkimg {
-  opacity: 0.2;
-  filter: alpha(opacity=50);
+    opacity: 0.2;
+    filter: alpha(opacity=50);
+    height: auto;
 }
 
-  header, main, footer {
+header,
+main,
+footer {
     padding-left: 300px;
-  }
-
-  @media only screen and (max-width : 992px) {
-    header, main, footer {
-      padding-left: 0;
-    }
-  }
-@media only screen and (max-width : 992px) {
-  .parallax-container .section {
-    position: absolute;
-    top: 40%;
-  }
-  #index-banner .section {
-    top: 10%;
-  }
 }
 
-@media only screen and (max-width : 600px) {
-  #index-banner .section {
-    top: 0;
-  }
+@media only screen and (max-width: 992px) {
+    header,
+    main,
+    footer {
+        padding-left: 0;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .parallax-container .section {
+        position: absolute;
+        top: 40%;
+    }
+    #index-banner .section {
+        top: 10%;
+    }
+    span.hashtag {
+        display: none;
+    }
+    .card-title .card {
+        line-height: 1.1 !important;
+        font-size: 20px !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #index-banner .section {
+        top: 0;
+    }
 }
 
 .icon-block {
-  padding: 0 15px;
+    padding: 0 15px;
 }
+
 .icon-block .material-icons {
-  font-size: inherit;
+    font-size: inherit;
 }
 
 footer.page-footer {
-  margin: 0;
+    margin: 0;
 }
-.resultsPage {
-  display: none;
-}
-.dropDivs {
-  /* padding: 10px !important; */
-  line-height: 1 !important;
-  margin-top: 0px;
-  padding-top: 0px;
-}
-.dropLabel {
-  color:white !important; 
-  font-size: 18px !important;
-}
-#srchLabel {
-  padding: 0px !important;
-  margin: 0px !important;
 
+.resultsPage {
+    display: none;
 }
+
+.dropDivs {
+    /* padding: 10px !important; */
+    line-height: 1 !important;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.dropLabel {
+    color: white !important;
+    font-size: 18px !important;
+}
+
+#srchLabel {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
 #filterSearch {
-  padding: 0px !important;
-  margin: 0px !important;
+    padding: 0px !important;
+    margin: 0px !important;
 }
+
 #filterBtn {
-  background-color: white !important;
-  color: #26a69a !important;
-  margin: 10px 10px;
+    background-color: white !important;
+    color: #26a69a !important;
+    margin: 10px 10px;
 }
+
+
 /* .recipeDiv {
   width: 70%;
   margin: 20px auto;
@@ -179,44 +204,48 @@ footer.page-footer {
 } */
 
 .groceryBtn {
-  background-color: #26a69a;
-  position: fixed;
-  bottom: 50px;
-  right: 10px;
-  border: 1px solid white;
-  border-radius: 5px;
-  z-index: 3;
+    background-color: #26a69a;
+    position: fixed;
+    bottom: 50px;
+    right: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    z-index: 3;
 }
+
 .addedAlert {
-  position: fixed;
-  bottom: 5px;
-  right: 5px;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
 }
 
 .collapseBtn {
-  background-color: #26a69a;
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  border: 1px solid white;
-  border-radius: 5px;
-  z-index: 3;
+    background-color: #26a69a;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    z-index: 3;
 }
 
 .image {
-  filter: brightness(50%);
+    filter: brightness(50%);
 }
 
 .cardImg {
-  filter: brightness(50%);
+    filter: brightness(50%);
 }
 
 .cardDiv {
-  position: relative;
-  z-index: 2;
-  margin-top: 30px;
+    position: relative;
+    z-index: 2;
+    margin-top: 30px;
 }
 
 .resultsDiv {
-  position: absolute;
+    /* position: absolute;  */
+    background-image: url("../images/fresshFood.jpeg");
+    background-position: center;
+    background-size: cover;
 }
