@@ -134,6 +134,7 @@ footer {
         line-height: 1.1 !important;
         font-size: 20px !important;
     }
+   
 }
 
 @media only screen and (max-width: 600px) {
@@ -231,17 +232,18 @@ footer.page-footer {
     /* position: absolute;  */
     background-image: url("../images/fresshFoodOpacity.jpeg");
     background-position: center;
-<<<<<<< HEAD
-    background-size: cover;    
-}
-
-
-=======
     background-size: cover;
 }
 
+.sugTitle {
+    line-height: 1;
+    font-size: 20px;
+}
+
+.sugImg {
+    opacity: 1 !important;
+}
 .portLink:hover {
     font-size: 18px;
     transition: all .3s ease-in-out;
 }
->>>>>>> 0ae584d08f8cad6d5476c5ac139c36de5336b684
