@@ -119,11 +119,7 @@ function filterList() {
 	}
 	console.log(exclVal);
 
-<<<<<<< HEAD
-	if (allergyOpts !== null || allergyOpts !== []) {
-=======
 	if (allergyOpts.length > 0) {
->>>>>>> 8ab25c4023f7d883d28d6ea37c9e463429ddb4f8
 		// add to url
 		settingsA.url += intoleranceFilter;
 		var lastOptA = dietOpts.length - 1;
