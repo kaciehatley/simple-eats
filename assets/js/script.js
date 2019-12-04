@@ -252,16 +252,11 @@ function createSuggested() {
 		}
 		$.ajax(settingsD).done(function (response) {
 			console.log(response);
-<<<<<<< HEAD
-			$('#recipeEl0').append("<h5 class='center'>" + response.title + "</h5>");
-			$('#recipeEl0').css('background-image', 'url(' + response.image + ')');			
-=======
 			// $('#recipeEl0').append("<h5 class='center'>" + response.title + "</h5>");
 			// // $('#recipeEl0').css('background-image', 'url(' + response.image + ')');
 			// $('#recipeEl0').append('<img src="' + response.image + '" alt="Recipe Image" class="sugRecipeImg">');
 			$('#recipeEl0').append('<img src="' + response.image + '" alt="Recipe Image" class="cardImg sugimg">');
 			$('#sugg0').prepend("<h3 class='center sugTitle'>" + response.title + "</h3>");
->>>>>>> 35257bd8b0b83d9a0d9af2079b60ff9b42312456
 		});	
 
 		// sugg recipe 2
