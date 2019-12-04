@@ -229,15 +229,16 @@ footer.page-footer {
     
 }
 .resultsDiv {
-    /* position: absolute;  */
     background-image: url("../images/fresshFoodOpacity.jpeg");
     background-position: center;
     background-size: cover;
 }
 
 .sugTitle {
-    line-height: 1;
-    font-size: 20px;
+    /* font-size: 2em; 
+    width: 320px; 
+    height: auto;  */
+      
 }
 
 .sugImg {
