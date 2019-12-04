@@ -278,10 +278,8 @@ function createSuggested() {
 	}
 	$.ajax(settingsD).done(function (response) {
 		console.log(response);
-		// $('#recipeEl0').append("<h5 class='center'>" + response.title + "</h5>");
-		// // $('#recipeEl0').css('background-image', 'url(' + response.image + ')');
-		// $('#recipeEl0').append('<img src="' + response.image + '" alt="Recipe Image" class="sugRecipeImg">');
-		$('#recipeEl0').append('<img src="' + response.image + '" alt="Recipe Image" class="cardImg sugimg">');
+		$('#sugg0').data('recipe', response.id);
+		$('#recipeEl0').append('<img src="' + response.image + '" alt="Recipe Image" class="cardImg sugImg">');
 		$('#sugg0').prepend("<p class='center sugTitle'style='font-size: 2em;  height:auto;'>" + response.title + "</p>");
 		$('.sugTitle').each(function () {
 			var $self = $(this),
@@ -307,9 +305,7 @@ function createSuggested() {
 	}
 	$.ajax(settingsD).done(function (response) {
 		console.log(response);
-		// $('#recipeEl1').append("<h5 class='center'>" + response.title + "</h5>");
-		// // $('#recipeEl1').css('background-image', 'url(' + response.image + ')');
-		// $('#recipeEl1').append('<img src="' + response.image + '" alt="Recipe Image" class="sugRecipeImg">');
+		$('#sugg1').data('recipe', response.id);
 		$('#recipeEl1').append('<img src="' + response.image + '" alt="Recipe Image" class="cardImg sugImg">');
 		$('#sugg1').prepend("<p class='center sugTitle'style='font-size: 2em;  height:auto;'>" + response.title + "</p>");
 		$('.sugTitle').each(function () {
@@ -336,6 +332,7 @@ function createSuggested() {
 	}
 	$.ajax(settingsD).done(function (response) {
 		console.log(response);
+		$('#sugg2').data('recipe', response.id);
 		$('#recipeEl2').append('<img src="' + response.image + '" alt="Recipe Image" class="cardImg sugImg">');
 		$('#sugg2').prepend("<p class='center sugTitle'style='font-size: 2em;  height:auto;'>" + response.title + "</p>");
 		$('.sugTitle').each(function () {
@@ -349,20 +346,25 @@ function createSuggested() {
 		});
 	});
 	console.log(suggID);
+	console.log()
 }
 createSuggested();
 
 
 $('.suggested').on("click", function(event) {
-	console.log(event.target.id);
+	console.log($(this).data("recipe"));
+	var clickedRecipe = $(this).data("recipe");
 	var settingsE = {
 		"async": true,
 		"crossDomain": true,
-		"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + event.target.id + "/information",
+		"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + clickedRecipe + "/information",
 		"method": "GET",
 		"headers": {
 			"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
 			"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
 	}
 	}
+	$.ajax(settingsE).done(function(response) {
+		console.log(response);
+	} );
 });	
