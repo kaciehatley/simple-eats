@@ -249,3 +249,8 @@ footer.page-footer {
     background-position: center;
     background-size: cover;
 }
+
+.portLink:hover {
+    font-size: 18px;
+    transition: all .3s ease-in-out;
+}
