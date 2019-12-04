@@ -140,6 +140,7 @@ footer {
         line-height: 1.1 !important;
         font-size: 20px !important;
     }
+   
 }
 
 @media only screen and (max-width: 600px) {
@@ -248,4 +249,13 @@ footer.page-footer {
     background-image: url("../images/fresshFood.jpeg");
     background-position: center;
     background-size: cover;
+}
+
+.sugTitle {
+    line-height: 1;
+    font-size: 20px;
+}
+
+.sugImg {
+    opacity: 1 !important;
 }

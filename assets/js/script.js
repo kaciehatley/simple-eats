@@ -61,7 +61,7 @@ var resultsPage = $(".resultsPage");
 var settings = {
 	"async": true,
 	"crossDomain": true,
-	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/random",
+	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/trivia/random",
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
@@ -133,7 +133,7 @@ function buttonClick() {
 				var title = split[0];
 				for(var i = 1; i < split.length; i++) {
 					title = title + '<span class="hashtag">#' + split[i] + '</span>';
-					}
+				}
 				cardTitle.innerHTML = title;
 				cardContent.innerHTML = "<b>Servings: </b>" + response.servings + "<br>" + "<b>Total Time: </b>" + response.readyInMinutes + "<br>" + "<b>Source: </b>" + response.sourceName + "<br>" +"<b>Health Score: </b>" + response.healthScore;
 
@@ -251,8 +251,11 @@ function createSuggested() {
 		}
 		$.ajax(settingsD).done(function (response) {
 			console.log(response);
-			$('#recipeEl0').append("<h5 class='center'>" + response.title + "</h5>");
-			$('#recipeEl0').css('background-image', 'url(' + response.image + ')');
+			// $('#recipeEl0').append("<h5 class='center'>" + response.title + "</h5>");
+			// // $('#recipeEl0').css('background-image', 'url(' + response.image + ')');
+			// $('#recipeEl0').append('<img src="' + response.image + '" alt="Recipe Image" class="sugRecipeImg">');
+			$('#recipeEl0').append('<img src="' + response.image + '" alt="Recipe Image" class="cardImg sugimg">');
+			$('#sugg0').prepend("<h3 class='center sugTitle'>" + response.title + "</h3>");
 		});	
 
 		// sugg recipe 2
@@ -268,8 +271,11 @@ function createSuggested() {
 			}
 			$.ajax(settingsD).done(function (response) {
 				console.log(response);
-				$('#recipeEl1').append("<h5 class='center'>" + response.title + "</h5>");
-				$('#recipeEl1').css('background-image', 'url(' + response.image + ')');
+				// $('#recipeEl1').append("<h5 class='center'>" + response.title + "</h5>");
+				// // $('#recipeEl1').css('background-image', 'url(' + response.image + ')');
+				// $('#recipeEl1').append('<img src="' + response.image + '" alt="Recipe Image" class="sugRecipeImg">');
+				$('#recipeEl1').append('<img src="' + response.image + '" alt="Recipe Image" class="cardImg sugImg">');
+				$('#sugg1').prepend("<h3 class='center sugTitle'>" + response.title + "</h3>");
 			});	
 
 			// sugg recipe 3
@@ -285,8 +291,8 @@ function createSuggested() {
 				}
 				$.ajax(settingsD).done(function (response) {
 					console.log(response);
-					$('#recipeEl2').append("<h5 class='center'>" + response.title + "</h5>");
-					$('#recipeEl2').css('background-image', 'url(' + response.image + ')');
+					$('#recipeEl2').append('<img src="' + response.image + '" alt="Recipe Image" class="cardImg sugImg">');
+					$('#sugg2').prepend("<h3 class='center sugTitle'>" + response.title + "</h3>");
 				});	
 	console.log(suggID);
 }
