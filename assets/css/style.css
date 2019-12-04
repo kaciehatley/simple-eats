@@ -105,12 +105,6 @@ p {
     background-color: #26a69a;
 }
 
-#rpbkimg {
-    opacity: 0.2;
-    filter: alpha(opacity=50);
-    height: auto;
-}
-
 header,
 main,
 footer {
@@ -193,16 +187,6 @@ footer.page-footer {
 }
 
 
-/* .recipeDiv {
-  width: 70%;
-  margin: 20px auto;
-  background-color: #26a69a;
-  padding: 8px;
-  text-align: left;
-  border-radius: 5px;
-  color: white;
-} */
-
 .groceryBtn {
     background-color: #26a69a;
     position: fixed;
@@ -240,12 +224,14 @@ footer.page-footer {
 .cardDiv {
     position: relative;
     z-index: 2;
-    margin-top: 30px;
+    margin-top: 30px;   
+    
 }
-
 .resultsDiv {
     /* position: absolute;  */
-    background-image: url("../images/fresshFood.jpeg");
+    background-image: url("../images/fresshFoodOpacity.jpeg");
     background-position: center;
-    background-size: cover;
+    background-size: cover;    
 }
+
+

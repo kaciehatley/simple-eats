@@ -76,6 +76,7 @@ $('#jokeIcon').on("click", function(){
 	});
 })
 
+//Tansition into Results Page
 function buttonClick() {
 	event.preventDefault();
 	landingPage.attr("style", "display:none;");
@@ -252,7 +253,7 @@ function createSuggested() {
 		$.ajax(settingsD).done(function (response) {
 			console.log(response);
 			$('#recipeEl0').append("<h5 class='center'>" + response.title + "</h5>");
-			$('#recipeEl0').css('background-image', 'url(' + response.image + ')');
+			$('#recipeEl0').css('background-image', 'url(' + response.image + ')');			
 		});	
 
 		// sugg recipe 2
