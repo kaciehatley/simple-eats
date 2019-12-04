@@ -97,12 +97,26 @@
                     </div>
                     <div class="col s12 m6">
                         <div class="icon-block">
-                            <h2 class="center  purple-text"><i class="material-icons"
-                                    id="groceryIcon">add_shopping_cart</i></h2>
+                            <a class="modal-trigger" href="#gListLandEl">
+                                <h2 class="center purple-text">
+                                    <i class="material-icons"
+                                    id="groceryIcon">add_shopping_cart</i>
+                                </h2>
+                            </a>
                             <h5 class="center">Grocery List</h5>
                             <ul class="center light" id="gListEl">
                                 <p>Create and keep your grocery list handy. You can add to your list right from your recipe.</p>
                             </ul>
+                        </div>
+                        <div id="gListLandEl" class="modal">
+                            <div class="modal-content gListModal">
+                                <h4>Grocery List</h4>
+                                <ul id="gListModalUL"></ul>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
+                                <button class="waves-effect waves-light btn" id="clearListModal">Clear Grocery List</button>
+                            </div>  
                         </div>
                     </div>
                 </div>
