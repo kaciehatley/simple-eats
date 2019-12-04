@@ -4,31 +4,34 @@ var fExcluded = document.getElementById("exclIngr");
 var fAllergy = document.getElementById("allergyOptions");
 var fType = document.getElementById("mealTypeOptions");
 var fBtn = document.getElementById("filterBtn");
+var threshold = 100;
 
 var groceryList = [];
+// var storedList = JSON.parse(localStorage.getItem("groceryList"));
+
 
 
 // Event listener for drop downs
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 	var renderList = JSON.parse(localStorage.getItem("groceryList"));
 	if (renderList !== null) {
 		groceryList = renderList;
 	}
 	var options = document.querySelectorAll('option');
-    var elems = document.querySelectorAll('select');
+	var elems = document.querySelectorAll('select');
 	var instances = M.FormSelect.init(elems, options);
 	$('.addedAlert').attr("style", "display: none");
 })
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 	var options = document.querySelectorAll('option');
-    var elems = document.querySelectorAll('.sidenav');
+	var elems = document.querySelectorAll('.sidenav');
 	var instances = M.Sidenav.init(elems, options);
-	
-	$('.collapseBtn').on("click", function() {
+
+	$('.collapseBtn').on("click", function () {
 		$('.sidenav').sidenav();
 	})
-  });
+});
 
 console.log($("#filterSearch").val());
 
@@ -69,7 +72,7 @@ var settings = {
 	}
 }
 
-$('#jokeIcon').on("click", function(){
+$('#jokeIcon').on("click", function () {
 	$.ajax(settings).done(function (response) {
 		$('#foodJoke').text("");
 		$('#foodJoke').text(response.text);
@@ -97,10 +100,10 @@ function buttonClick() {
 
 	$.ajax(settingsA).done(function (response) {
 		console.log(response);
-		for (var i=0; i < response.results.length; i++) {
+		for (var i = 0; i < response.results.length; i++) {
 			recipeID.push(response.results[i].id);
 		}
-		for (var j=0; j < recipeID.length; j++) {
+		for (var j = 0; j < recipeID.length; j++) {
 			var settingsB = {
 				"async": true,
 				"crossDomain": true,
@@ -130,13 +133,13 @@ function buttonClick() {
 				cardImg.setAttribute("src", response.image);
 				cardImg.setAttribute("class", "cardImg");
 				cardTitle.setAttribute("class", "card-title");
-				var split=response.title.split("#");
+				var split = response.title.split("#");
 				var title = split[0];
-				for(var i = 1; i < split.length; i++) {
+				for (var i = 1; i < split.length; i++) {
 					title = title + '<span class="hashtag">#' + split[i] + '</span>';
 				}
 				cardTitle.innerHTML = title;
-				cardContent.innerHTML = "<b>Servings: </b>" + response.servings + "<br>" + "<b>Total Time: </b>" + response.readyInMinutes + "<br>" + "<b>Source: </b>" + response.sourceName + "<br>" +"<b>Health Score: </b>" + response.healthScore;
+				cardContent.innerHTML = "<b>Servings: </b>" + response.servings + "<br>" + "<b>Total Time: </b>" + response.readyInMinutes + "<br>" + "<b>Source: </b>" + response.sourceName + "<br>" + "<b>Health Score: </b>" + response.healthScore;
 
 				cardImgDiv.appendChild(cardImg);
 				cardImgDiv.appendChild(cardTitle);
@@ -157,7 +160,7 @@ function buttonClick() {
 				// newDiv.append("Total Time: " + response.readyInMinutes);
 				// resultsDiv.append(newDiv);
 
-				cardDiv.addEventListener("click", function(event) {
+				cardDiv.addEventListener("click", function (event) {
 					var settingsC = {
 						"async": true,
 						"crossDomain": true,
@@ -174,14 +177,17 @@ function buttonClick() {
 
 						$('#recipeTitle').text(response.title);
 						$('#servings').text("Yields: " + response.servings + " servings");
-						for (var h=0; h < response.extendedIngredients.length; h++) {
-							$('#ingredientList').append(response.extendedIngredients[h].measures.us.amount + " " + response.extendedIngredients[h].measures.us.unitShort + " " + response.extendedIngredients[h].name +'<i class="fas fa-plus plusBtn circle" data-name="' + response.extendedIngredients[h].name + '"></i><br/>');
+						for (var h = 0; h < response.extendedIngredients.length; h++) {
+							$('#ingredientList').append(response.extendedIngredients[h].measures.us.amount + " " + response.extendedIngredients[h].measures.us.unitShort + " " + response.extendedIngredients[h].name + '<i class="fas fa-plus plusBtn circle" data-name="' + response.extendedIngredients[h].name + '"></i><br/>');
 						}
-						$('#instructions').text("Instructions: " + response.instructions);
+						console.log(response.instructions);
+						if (response.instructions !== null) {
+							$('#instructions').text("Instructions: " + response.instructions);
+						}
 						$('#recipeImg').attr('src', response.image);
 						$('#recipeURL').text("Source URL: " + response.sourceUrl);
-						$('#modal1').modal('open'); 
-					});	
+						$('#modal1').modal('open');
+					});
 				});
 			});
 		}
@@ -199,6 +205,8 @@ $(document).on("click", ".plusBtn", function () {
 	// console.log("Hello there");
 	console.log($(this).data("name"));
 	var groceryItem = $(this).data("name");
+	console.log(groceryItem);
+	console.log(groceryList);
 	groceryList.push(groceryItem);
 	localStorage.setItem("groceryList", JSON.stringify(groceryList));
 	$('.addedAlert').attr("style", "display: block");
@@ -206,18 +214,18 @@ $(document).on("click", ".plusBtn", function () {
 	pTagDelay();
 });
 
-$('.groceryBtn').on("click", function() {
+$('.groceryBtn').on("click", function () {
 	event.preventDefault();
 	$('.listItems').text("");
 	var storedList = JSON.parse(localStorage.getItem("groceryList"));
 	groceryList = storedList;
-	for (var i= 0; i < groceryList.length; i++) {
+	for (var i = 0; i < groceryList.length; i++) {
 		$('.listItems').append('<li>' + groceryList[i] + '</li>');
 	}
 	console.log(groceryList);
 })
 
-$('#clearList').on("click", function() {
+$('#clearList').on("click", function () {
 	event.preventDefault();
 	$('.listItems').text("");
 	localStorage.clear();
@@ -225,9 +233,23 @@ $('#clearList').on("click", function() {
 })
 
 
+function landingList() {
+	var storedList = JSON.parse(localStorage.getItem("groceryList"));
+	groceryList = storedList;
+	if (groceryList !== null) {
+		$("#gListEl").empty();
+		for (var i= 0; i < groceryList.length; i++) {
+			$('#gListEl').append('<li>' + groceryList[i] + '</li>');
+		}
+	}
+	console.log(groceryList);
+}
+landingList();
+
+
 //This initiates the modals on the results page
-$(document).ready(function(){
-    $('.modal').modal();
+$(document).ready(function () {
+	$('.modal').modal();
 });
 
 
@@ -236,19 +258,76 @@ var suggRec = ["798360", "110434", "758097", "837690", "775955", "496200", "2460
 createSuggested();
 function createSuggested() {
 	var suggID = [];
-	for (i=0; i<3; i++) {
+	for (i = 0; i < 3; i++) {
 		suggID[i] = suggRec[Math.floor(suggRec.length * Math.random())];
 	}
 	// sugg recipe 1
 	var settingsD = {
 		"async": true,
-			"crossDomain": true,
-			"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + suggID[0] + "/information",
-			"method": "GET",
-			"headers": {
-				"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-				"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
+		"crossDomain": true,
+		"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + suggID[0] + "/information",
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+			"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
+		}
+	}
+	$.ajax(settingsD).done(function (response) {
+		console.log(response);
+		// $('#recipeEl0').append("<h5 class='center'>" + response.title + "</h5>");
+		// // $('#recipeEl0').css('background-image', 'url(' + response.image + ')');
+		// $('#recipeEl0').append('<img src="' + response.image + '" alt="Recipe Image" class="sugRecipeImg">');
+		$('#recipeEl0').append('<img src="' + response.image + '" alt="Recipe Image" class="cardImg sugimg">');
+		$('#sugg0').prepend("<p class='center sugTitle'style='font-size: 2em;  height:auto;'>" + response.title + "</p>");
+		$('.sugTitle').each(function () {
+			var $self = $(this),
+				fs = parseInt($self.css('font-size'));
+
+			while ($self.height() > threshold) {
+				$self.css({ 'font-size': fs-- });
 			}
+			$self.height(threshold);
+		});
+		});
+
+	// sugg recipe 2
+	var settingsD = {
+		"async": true,
+		"crossDomain": true,
+		"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + suggID[1] + "/information",
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+			"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
+		}
+	}
+	$.ajax(settingsD).done(function (response) {
+		console.log(response);
+		// $('#recipeEl1').append("<h5 class='center'>" + response.title + "</h5>");
+		// // $('#recipeEl1').css('background-image', 'url(' + response.image + ')');
+		// $('#recipeEl1').append('<img src="' + response.image + '" alt="Recipe Image" class="sugRecipeImg">');
+		$('#recipeEl1').append('<img src="' + response.image + '" alt="Recipe Image" class="cardImg sugImg">');
+		$('#sugg1').prepend("<p class='center sugTitle'style='font-size: 2em;  height:auto;'>" + response.title + "</p>");
+		$('.sugTitle').each(function () {
+			var $self = $(this),
+				fs = parseInt($self.css('font-size'));
+
+			while ($self.height() > threshold) {
+				$self.css({ 'font-size': fs-- });
+			}
+			$self.height(threshold);
+		});
+	});
+
+	// sugg recipe 3
+	var settingsD = {
+		"async": true,
+		"crossDomain": true,
+		"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + suggID[2] + "/information",
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+			"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
 		}
 		$.ajax(settingsD).done(function (response) {
 			console.log(response);
@@ -304,14 +383,34 @@ function createSuggested() {
 
 $('.suggested').on("click", function(event) {
 	console.log(event.target.id);
-	// var settingsE = {
-	// 	"async": true,
-	// 	"crossDomain": true,
-	// 	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + event.target.id + "/information",
-	// 	"method": "GET",
-	// 	"headers": {
-	// 		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-	// 		"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
-	// }
-	// }
+	var settingsE = {
+		"async": true,
+		"crossDomain": true,
+		"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + event.target.id + "/information",
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+			"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
+	}
+	}
 })
+	}
+	$.ajax(settingsD).done(function (response) {
+		console.log(response);
+		$('#recipeEl2').append('<img src="' + response.image + '" alt="Recipe Image" class="cardImg sugImg">');
+		$('#sugg2').prepend("<p class='center sugTitle'style='font-size: 2em;  height:auto;'>" + response.title + "</p>");
+		$('.sugTitle').each(function () {
+			var $self = $(this),
+				fs = parseInt($self.css('font-size'));
+
+			while ($self.height() > threshold) {
+				$self.css({ 'font-size': fs-- });
+			}
+			$self.height(threshold);
+		});
+	});
+	console.log(suggID);
+	
+
+		
+}
