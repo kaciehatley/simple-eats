@@ -241,6 +241,11 @@ function landingList() {
 		for (var i= 0; i < groceryList.length; i++) {
 			$('#gListEl').append('<li>' + groceryList[i] + '</li>');
 		}
+		if (groceryList.length > 3) {
+			$('#gListEl').css("height", "75px");
+			$('#gListEl').css("overflow-y", "scroll");
+			$('#gListEl').css("overflow-x", "hidden");
+		}
 	}
 	console.log(groceryList);
 }
