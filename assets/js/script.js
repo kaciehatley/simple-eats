@@ -180,7 +180,10 @@ function buttonClick() {
 						for (var h = 0; h < response.extendedIngredients.length; h++) {
 							$('#ingredientList').append(response.extendedIngredients[h].measures.us.amount + " " + response.extendedIngredients[h].measures.us.unitShort + " " + response.extendedIngredients[h].name + '<i class="fas fa-plus plusBtn circle" data-name="' + response.extendedIngredients[h].name + '"></i><br/>');
 						}
-						$('#instructions').text("Instructions: " + response.instructions);
+						console.log(response.instructions);
+						if (response.instructions !== null) {
+							$('#instructions').text("Instructions: " + response.instructions);
+						}
 						$('#recipeImg').attr('src', response.image);
 						$('#recipeURL').text("Source URL: " + response.sourceUrl);
 						$('#modal1').modal('open');
