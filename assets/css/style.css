@@ -231,7 +231,17 @@ footer.page-footer {
     /* position: absolute;  */
     background-image: url("../images/fresshFoodOpacity.jpeg");
     background-position: center;
+<<<<<<< HEAD
     background-size: cover;    
 }
 
 
+=======
+    background-size: cover;
+}
+
+.portLink:hover {
+    font-size: 18px;
+    transition: all .3s ease-in-out;
+}
+>>>>>>> 0ae584d08f8cad6d5476c5ac139c36de5336b684

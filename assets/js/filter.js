@@ -47,17 +47,14 @@ function filterList() {
 		if (optD.selected) {
 			// add to array of option elements to return from this function
 			dietOpts.push(optD.value);
-			console.log("Diet option selected: " + optD.value);
 		}
+		console.log(dietOpts); // runs 5 times
 	}
 
-	var exclVal;
 	// filter excluded items
-
-	if (fExcluded.value !== null) {
-		exclVal = fExcluded.value;
-		console.log("Excluded option selected: " + fExcluded.value);
-	}
+	var exclVal = fExcluded.value;
+	console.log(exclVal);
+	
 
 	// filter allergy
 	var allergyOpts = [];
@@ -68,8 +65,6 @@ function filterList() {
 		if (optA.selected) {
 			// add to array of option elements to return from this function
 			allergyOpts.push(optA.value);
-			console.log("Intolerance option selected: " + optA.value);
-
 		}
 	}
 
@@ -82,13 +77,20 @@ function filterList() {
 		if (optT.selected) {
 			// add to array of option elements to return from this function
 			typeOpts.push(optT.value);
-			console.log("Type option selected: " + optT.value);
 		}
 	}
 	
 
 	// run search
 	recipeID = [];
+	
+	console.log(query);
+	// console.log(settingsA.url);
+	
+	console.log(dietOpts);
+	console.log(exclVal);
+	console.log(allergyOpts);
+	console.log(typeOpts);
 
 	var settingsA = {
 		"async": true,
@@ -100,7 +102,7 @@ function filterList() {
 			"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
 		}
 	}
-	if (dietOpts !== null || dietOpts !== []) {
+	if (dietOpts.length > 0) {
 		// add to url
 		settingsA.url += dietFilter;
 		// settingsA.url += dietFilter + dietOpts;
@@ -108,17 +110,20 @@ function filterList() {
 		var lastOptD = dietOpts.length - 1;
 		for (var i=0; i<dietOpts.length - 1; i++) {
 			settingsA.url += dietOpts[i] + "%252C%20";
+			console.log(settingsA.url);
 		}
 		settingsA.url += dietOpts[lastOptD];
-		console.log("Diet option filtered: " + dietOpts);
-
 	}
-	if (exclVal !== null) {
+	if (exclVal.length > 0) {
 		settingsA.url += excludeFilter + exclVal;
-		console.log("Excl option filtered: " + exclVal);
 	}
+	console.log(exclVal);
 
-	if (allergyOpts !== null) {
+<<<<<<< HEAD
+	if (allergyOpts !== null || allergyOpts !== []) {
+=======
+	if (allergyOpts.length > 0) {
+>>>>>>> 8ab25c4023f7d883d28d6ea37c9e463429ddb4f8
 		// add to url
 		settingsA.url += intoleranceFilter;
 		var lastOptA = dietOpts.length - 1;
@@ -126,29 +131,25 @@ function filterList() {
 			settingsA.url += allergyOpts[j] + "%252C%20";
 		}
 		settingsA.url += allergyOpts[lastOptA];
-		console.log("Intol option filtered: " + allergyOpts);
-
 	}
+	console.log(allergyOpts);
 
 	settingsA.url += "&number=6&offset=0";
 
-	if (typeOpts !== null || typeOpts !== []) {
+	if (typeOpts.length > 0) {
 		// add to url
 		settingsA.url += recipeType;
 		var lastOptT = typeOpts.length - 1;
 		for (var j=0; j < typeOpts.length -1; i++) {
 			settingsA.url += typeOpts[j] + "%252C%20";
 		}
-		settingsA.url += typeOpts[lastOptT];
-		console.log("Type option filtered: " + typeOpts);
-
+		settingsA.url += typeOpts[lastOptT]
 	}
+	console.log(typeOpts);
 
 	settingsA.url += "&query=" + query;
-	console.log("Query option filtered: " + query);
-
 	console.log(settingsA.url);
-	
+	console.log(query);
 	$.ajax(settingsA).done(function (response) {
 		console.log(response);
 		console.log(response.totalResults);
@@ -159,8 +160,6 @@ function filterList() {
 		for (var i=0; i < response.results.length; i++) {
 			recipeID.push(response.results[i].id);
 		}
-		var resultsDiv = document.querySelector(".resultsDiv");
-		$(resultsDiv).empty();
 
 		for (var j=0; j < recipeID.length; j++) {
 			var settingsB = {
@@ -175,6 +174,7 @@ function filterList() {
 			}
 			$.ajax(settingsB).done(function (response) {
 				console.log(response);
+				var resultsDiv = document.querySelector(".resultsDiv");
 				var cardDiv = document.createElement("div");
 				var createCardDiv = document.createElement("div");
 				var cardImgDiv = document.createElement("div");
@@ -191,7 +191,13 @@ function filterList() {
 				cardImg.setAttribute("src", response.image);
 				cardImg.setAttribute("class", "cardImg");
 				cardTitle.setAttribute("class", "card-title");
-				cardTitle.innerHTML = response.title;
+
+				var split=response.title.split("#");
+				var title = split[0];
+				for(var i = 1; i < split.length; i++) {
+					title = title + '<span class="hashtag">#' + split[i] + '</span>';
+				}
+				cardTitle.innerHTML = title;
 				cardContent.innerHTML = "<b>Servings: </b>" + response.servings + "<br>" + "<b>Total Time: </b>" + response.readyInMinutes + "<br>" + "<b>Source: </b>" + response.sourceName + "<br>" +"<b>Health Score: </b>" + response.healthScore;
 
 				cardImgDiv.appendChild(cardImg);
