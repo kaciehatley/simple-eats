@@ -255,6 +255,7 @@ function createSuggested() {
 			// $('#recipeEl0').append("<h5 class='center'>" + response.title + "</h5>");
 			// // $('#recipeEl0').css('background-image', 'url(' + response.image + ')');
 			// $('#recipeEl0').append('<img src="' + response.image + '" alt="Recipe Image" class="sugRecipeImg">');
+			$('#recipeEl2').data("id", suggID[0]);
 			$('#recipeEl0').append('<img src="' + response.image + '" alt="Recipe Image" class="cardImg sugimg">');
 			$('#sugg0').prepend("<h3 class='center sugTitle'>" + response.title + "</h3>");
 		});	
@@ -275,6 +276,7 @@ function createSuggested() {
 				// $('#recipeEl1').append("<h5 class='center'>" + response.title + "</h5>");
 				// // $('#recipeEl1').css('background-image', 'url(' + response.image + ')');
 				// $('#recipeEl1').append('<img src="' + response.image + '" alt="Recipe Image" class="sugRecipeImg">');
+				$('#recipeEl2').data("id", suggID[1]);
 				$('#recipeEl1').append('<img src="' + response.image + '" alt="Recipe Image" class="cardImg sugImg">');
 				$('#sugg1').prepend("<h3 class='center sugTitle'>" + response.title + "</h3>");
 			});	
@@ -292,8 +294,24 @@ function createSuggested() {
 				}
 				$.ajax(settingsD).done(function (response) {
 					console.log(response);
+					console.log(suggID[2]);
+					$('#recipeEl2').data("id", suggID[2]);
 					$('#recipeEl2').append('<img src="' + response.image + '" alt="Recipe Image" class="cardImg sugImg">');
 					$('#sugg2').prepend("<h3 class='center sugTitle'>" + response.title + "</h3>");
 				});	
 	console.log(suggID);
 }
+
+$('.suggested').on("click", function(event) {
+	console.log(event.target.id);
+	// var settingsE = {
+	// 	"async": true,
+	// 	"crossDomain": true,
+	// 	"url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + event.target.id + "/information",
+	// 	"method": "GET",
+	// 	"headers": {
+	// 		"x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+	// 		"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
+	// }
+	// }
+})
