@@ -248,3 +248,7 @@ footer.page-footer {
     font-size: 18px;
     transition: all .3s ease-in-out;
 }
+
+#gListEl {
+    overflow: auto;
+}

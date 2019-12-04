@@ -7,6 +7,8 @@ var fBtn = document.getElementById("filterBtn");
 var threshold = 100;
 
 var groceryList = [];
+// var storedList = JSON.parse(localStorage.getItem("groceryList"));
+
 
 
 // Event listener for drop downs
@@ -200,6 +202,8 @@ $(document).on("click", ".plusBtn", function () {
 	// console.log("Hello there");
 	console.log($(this).data("name"));
 	var groceryItem = $(this).data("name");
+	console.log(groceryItem);
+	console.log(groceryList);
 	groceryList.push(groceryItem);
 	localStorage.setItem("groceryList", JSON.stringify(groceryList));
 	$('.addedAlert').attr("style", "display: block");
@@ -224,6 +228,20 @@ $('#clearList').on("click", function () {
 	localStorage.clear();
 	groceryList = [];
 })
+
+
+function landingList() {
+	var storedList = JSON.parse(localStorage.getItem("groceryList"));
+	groceryList = storedList;
+	if (groceryList !== null) {
+		$("#gListEl").empty();
+		for (var i= 0; i < groceryList.length; i++) {
+			$('#gListEl').append('<li>' + groceryList[i] + '</li>');
+		}
+	}
+	console.log(groceryList);
+}
+landingList();
 
 
 //This initiates the modals on the results page
