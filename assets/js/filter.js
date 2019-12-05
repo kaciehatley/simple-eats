@@ -102,18 +102,21 @@ function filterList() {
 			"x-rapidapi-key": "2388dc2328mshdfb27ddd851a294p139d5ejsnff16b5b1257e"
 		}
 	}
+
 	if (dietOpts.length > 0) {
 		// add to url
 		settingsA.url += dietFilter;
 		// settingsA.url += dietFilter + dietOpts;
 		// settingsA.url + dietOpts;
 		var lastOptD = dietOpts.length - 1;
+		console.log(dietOpts[0]);
 		for (var i=0; i<dietOpts.length - 1; i++) {
 			settingsA.url += dietOpts[i] + "%252C%20";
 			console.log(settingsA.url);
 		}
 		settingsA.url += dietOpts[lastOptD];
 	}
+
 	if (exclVal.length > 0) {
 		settingsA.url += excludeFilter + exclVal;
 	}
@@ -122,13 +125,14 @@ function filterList() {
 	if (allergyOpts.length > 0) {
 		// add to url
 		settingsA.url += intoleranceFilter;
-		var lastOptA = dietOpts.length - 1;
+		var lastOptA = allergyOpts.length - 1;
 		for (var j=0; j < allergyOpts.length -1; i++) {
 			settingsA.url += allergyOpts[j] + "%252C%20";
 		}
 		settingsA.url += allergyOpts[lastOptA];
+		console.log(allergyOpts[lastOptA]);
+		console.log(allergyOpts[0]);
 	}
-	console.log(allergyOpts);
 
 	settingsA.url += "&number=6&offset=0";
 
@@ -136,8 +140,8 @@ function filterList() {
 		// add to url
 		settingsA.url += recipeType;
 		var lastOptT = typeOpts.length - 1;
-		for (var j=0; j < typeOpts.length -1; i++) {
-			settingsA.url += typeOpts[j] + "%252C%20";
+		for (var k=0; k < typeOpts.length -1; k++) {
+			settingsA.url += typeOpts[k] + "%252C%20";
 		}
 		settingsA.url += typeOpts[lastOptT]
 	}
@@ -151,12 +155,13 @@ function filterList() {
 		console.log(response.totalResults);
 		if (response.totalResults === 0){
 			// popup if filter options do not create a match
-			M.toast({html: 'No results found.'})
+			M.toast({html: 'No results found.'});
 		}
 		for (var i=0; i < response.results.length; i++) {
 			recipeID.push(response.results[i].id);
 		}
-
+		var resultsDiv = document.querySelector(".resultsDiv");
+		resultsDiv.innerHTML = "";
 		for (var j=0; j < recipeID.length; j++) {
 			var settingsB = {
 				"async": true,

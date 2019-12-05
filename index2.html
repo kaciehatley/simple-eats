@@ -7,10 +7,8 @@
     <title>Simple Eats</title>
     <!-- CSS  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link href="assets/parallax-template/parallax-template/css/materialize.css" type="text/css" rel="stylesheet"
-        media="screen,projection" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="assets/parallax-template/parallax-template/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
     <link href="assets/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
 </head>
 
@@ -33,17 +31,13 @@
                     <br><br>
                     <h1 class="header center white-text text-lighten-3" style="font-weight: bold">Recipe Finder</h1>
                     <div class="row center">
-                        <h5 class="header col s12 darken-2">A simple way to find recipes, build your grocery list and be
-                            more informed about your food.</h5>
+                        <h5 class="header col s12 darken-2">A simple way to find recipes, build your grocery list and be more informed about your food.</h5>
                     </div>
                     <div class="row center">
-                        <div class="search-wrapper" style="position: relative;
-                            height: 65px; margin-left: 25%; width:60%">
-                            <input id="search" placeholder="Search Recipes Here" style="top: -20px;
-                            position: absolute;
-                            left: -15%; border-radius: 5px">
-                            <i id="download-button" style="position: absolute; right: 10%;"
-                                class="medium material-icons" onclick="buttonClick()">search</i>
+                        <div class="search-wrapper" style="position: relative; height: 65px;  width:60%">
+                            <!-- margin-left: 25%; -->
+                            <input id="search" placeholder="Search Recipes Here" style="top: -20px; position: absolute; left: -15%; border-radius: 5px">
+                            <i id="download-button" style="position: absolute; right: 10%;" class="medium material-icons" onclick="buttonClick()">search</i>
                         </div> 
                     </div>
                     <br><br>
@@ -73,12 +67,28 @@
                 </div>
             </div>
         </div>
+        <!-- Suggested Recipe Modal Structure -->
+        <div id="suggestedModal" class="modal">
+            <div class="modal-content">
+                <p class="addedAlert waves-effect waves-light btn"></p>
+                <h4 id="suggestedTitle">Recipe Title</h4>
+                <p id="suggestedServings"></p>
+                <div id="suggestedIngr">
+                    <h6>Ingredient List:</h6>
+                </div>
+                <p id="suggestedInstructions"></p>
+                <img id="suggestedRecipeImg" alt="Recipe Image" src="#">
+                <a id="suggestedRecipeURL"></a>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
+            </div>
+        </div>
         <div class="parallax-container valign-wrapper">
             <div class="section no-pad-bot">
                 <div class="container">
                     <div class="row center">
-                        <h5 class="header col s12 darken-2" style="letter-spacing: 3px; font-size: 38px">Enjoy making it
-                            from scratch!
+                        <h5 class="header col s12 darken-2" style="letter-spacing: 3px; font-size: 38px">Enjoy making it from scratch!
                         </h5>
                     </div>
                 </div>
@@ -97,12 +107,26 @@
                     </div>
                     <div class="col s12 m6">
                         <div class="icon-block">
-                            <h2 class="center  purple-text"><i class="material-icons"
-                                    id="groceryIcon">add_shopping_cart</i></h2>
+                            <a class="modal-trigger" href="#gListLandEl">
+                                <h2 class="center purple-text">
+                                    <i class="material-icons" id="groceryIcon">add_shopping_cart</i>
+                                </h2>
+                            </a>
                             <h5 class="center">Grocery List</h5>
                             <ul class="center light" id="gListEl">
-                                <p>Create and keep your grocery list handy. You can add to your list right from your recipe.</p>
+                                <li><p>Create and keep your grocery list handy. You can add to your list right from your recipe.</p></li>
                             </ul>
+                        </div>
+                        <!-- Modal for landing page grocery list -->
+                        <div id="gListLandEl" class="modal">
+                            <div class="modal-content gListModal">
+                                <h4>Grocery List</h4>
+                                <ul id="gListModalUL"></ul>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Done</a>
+                                <button class="waves-effect waves-light btn" id="clearListModal">Clear Grocery List</button>
+                            </div>  
                         </div>
                     </div>
                 </div>
@@ -112,8 +136,7 @@
             <div class="section no-pad-bot">
                 <div class="container">
                     <div class="row center">
-                        <h5 class="header col s12 darken-2" style="letter-spacing: 3px; font-size: 38px">Understand the
-                            nutrition behind your food.
+                        <h5 class="header col s12 darken-2" style="letter-spacing: 3px; font-size: 38px">Understand the nutrition behind your food.
                         </h5>
                     </div>
                 </div>
@@ -125,6 +148,7 @@
     </div>
 
     <div class="resultsPage">
+        <!-- side nav for filter dropdowns -->
         <ul id="slide-out" class="sidenav">
             <li>
                 <p class="dropLabel" id="srchLabel">Search:</p>
@@ -191,11 +215,13 @@
             </li>
         </ul>
 
+        <!-- Div to add results from search dynamically -->
         <div class="row resultsDiv"></div>
+        <!-- Modal on click buttons -->
         <button class="groceryBtn waves-effect waves-light btn"><a class="modal-trigger" style="color: white" href="#modal2">Grocery List</a></button>
         <button class="collapseBtn waves-effect waves-light btn"><a data-target="slide-out" class="sidenav-trigger" style="color: white">Display Search Filters</a></button>
 
-        <!-- Modal Structure -->
+        <!-- Recipe Modal Structure -->
         <div id="modal1" class="modal">
             <div class="modal-content">
                 <p class="addedAlert waves-effect waves-light btn"></p>
@@ -205,7 +231,7 @@
                     <h6>Ingredient List:</h6>
                 </div>
                 <p id="instructions"></p>
-                <img id="recipeImg">
+                <img id="recipeImg" alt="Recipe Image" src="#">
                 <a id="recipeURL"></a>
             </div>
             <div class="modal-footer">
@@ -213,7 +239,7 @@
             </div>
         </div>
 
-        <!-- Modal Structure -->
+        <!-- Grocery Modal Structure -->
         <div id="modal2" class="modal">
             <div class="modal-content">
                 <h4>Grocery List</h4>
@@ -226,6 +252,7 @@
         </div>    
     </div>
 
+    <!-- Footer  w/ links to portfolio -->
     <footer class="page-footer teal">
         <div class="container">
             <div class="row">
@@ -236,7 +263,6 @@
                     <p class="white-text text-darkern-2 portLink">Jodi Rhoades: <a class="white-text text-darkern-2" href="https://odiejo.github.io/portfolio/">Portfolio Link</a></p>
                 </div>
             </div>
-        </div>
         </div>
     </footer>
 

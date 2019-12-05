@@ -207,11 +207,22 @@ $(document).on("click", ".plusBtn", function () {
 	var groceryItem = $(this).data("name");
 	console.log(groceryItem);
 	console.log(groceryList);
-	groceryList.push(groceryItem);
-	localStorage.setItem("groceryList", JSON.stringify(groceryList));
-	$('.addedAlert').attr("style", "display: block");
-	$('.addedAlert').text("Added To Grocery List!");
-	pTagDelay();
+	if (groceryList !== null) {
+		groceryList.push(groceryItem);
+		localStorage.setItem("groceryList", JSON.stringify(groceryList));
+		$('.addedAlert').attr("style", "display: block");
+		$('.addedAlert').text("Added To Grocery List!");
+		pTagDelay();
+	}
+	else {
+		groceryList = [groceryItem];
+		localStorage.setItem("groceryList", JSON.stringify(groceryList));
+		$('.addedAlert').attr("style", "display: block");
+		$('.addedAlert').text("Added To Grocery List!");
+		pTagDelay();
+	}
+	console.log(groceryList);
+	landingList();
 });
 
 $('.groceryBtn').on("click", function () {
@@ -222,7 +233,6 @@ $('.groceryBtn').on("click", function () {
 	for (var i = 0; i < groceryList.length; i++) {
 		$('.listItems').append('<li>' + groceryList[i] + '</li>');
 	}
-	console.log(groceryList);
 })
 
 $('#clearList').on("click", function () {
@@ -232,7 +242,7 @@ $('#clearList').on("click", function () {
 	groceryList = [];
 })
 
-
+// Creates grocery list on landing page
 function landingList() {
 	var storedList = JSON.parse(localStorage.getItem("groceryList"));
 	groceryList = storedList;
@@ -242,14 +252,41 @@ function landingList() {
 			$('#gListEl').append('<li>' + groceryList[i] + '</li>');
 		}
 		if (groceryList.length > 3) {
-			$('#gListEl').css("height", "75px");
+			$('#gListEl').css("height", "100px");
 			$('#gListEl').css("overflow-y", "scroll");
 			$('#gListEl').css("overflow-x", "hidden");
 		}
 	}
-	console.log(groceryList);
 }
 landingList();
+
+$("#groceryIcon").on("click", function(){
+	event.preventDefault();
+	var storedList = JSON.parse(localStorage.getItem("groceryList"));
+	groceryList = storedList;
+	if (groceryList !== null) {
+		$("#gListLandEl").attr("style", "display: block; opacity: 0;");
+		$('#gListModalUL').empty();
+		for (var i= 0; i < groceryList.length; i++) {
+			$('#gListModalUL').append("<li>" + groceryList[i] + "</li>");
+		}
+	}
+	else {
+		M.toast({html: 'No grocery list found.'});
+	}
+});
+
+$('#clearListModal').on("click", function () {
+	event.preventDefault();
+	$('#gListModalUL').empty();
+	$("#gListEl").empty();
+	$('#gListEl').css("height", "auto");
+	$('#gListEl').css("overflow-y", "visible");
+	$('#gListEl').css("overflow-x", "visible");
+	$("#gListEl").append("<li><p>Create and keep your grocery list handy. You can add to your list right from your recipe.</p></li>");
+	localStorage.clear();
+	groceryList = [];
+});
 
 
 //This initiates the modals on the results page
@@ -257,8 +294,8 @@ $(document).ready(function () {
 	$('.modal').modal();
 });
 
-
-var suggRec = ["798360", "110434", "758097", "837690", "775955", "496200", "246055", "532503", "213255", "668334", "246532", "469367", "668318", "482574"];
+// Creates Suggested recipe blocks on landing page
+var suggRec = ["101643", "110434", "145081", "213255", "226460", "245271", "246055", "246532", "469367", "482574", "494968", "496200", "507985", "532503", "552262", "586773", "588602", "668318", "668334", "668377", "723984", "758097", "775955", "798360", "837690"];
 
 function createSuggested() {
 	var suggID = [];
@@ -350,7 +387,6 @@ function createSuggested() {
 }
 createSuggested();
 
-
 $('.suggested').on("click", function(event) {
 	console.log($(this).data("recipe"));
 	var clickedRecipe = $(this).data("recipe");
@@ -366,5 +402,17 @@ $('.suggested').on("click", function(event) {
 	}
 	$.ajax(settingsE).done(function(response) {
 		console.log(response);
-	} );
+		$('#suggestedTitle').text(response.title);
+		$('#suggestedServings').text("Yields: " + response.servings + " servings");
+		for (var h = 0; h < response.extendedIngredients.length; h++) {
+			$('#suggestedIngr').append(response.extendedIngredients[h].measures.us.amount + " " + response.extendedIngredients[h].measures.us.unitShort + " " + response.extendedIngredients[h].name + '<i class="fas fa-plus plusBtn circle" data-name="' + response.extendedIngredients[h].name + '"></i><br/>');
+		}
+		console.log(response.instructions);
+		if (response.instructions !== null) {
+			$('#suggestedInstructions').text("Instructions: " + response.instructions);
+		}
+		$('#suggestedRecipeImg').attr('src', response.image);
+		$('#suggestedRecipeURL').text("Source URL: " + response.sourceUrl);
+		$('#suggestedModal').modal('open');
+	});
 });	

@@ -245,3 +245,16 @@ footer.page-footer {
 #gListEl {
     overflow: auto;
 }
+
+.gListLand {
+    color: #26a69a;
+}
+
+.gListLandEl {
+    display: none;
+}
+.search-wrapper {
+    min-width: 325px !important;
+    margin: 0 auto !important;
+    left: 5%;
+}
