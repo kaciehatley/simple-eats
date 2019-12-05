@@ -401,5 +401,17 @@ $('.suggested').on("click", function(event) {
 	}
 	$.ajax(settingsE).done(function(response) {
 		console.log(response);
-	} );
+		$('#suggestedTitle').text(response.title);
+		$('#suggestedServings').text("Yields: " + response.servings + " servings");
+		for (var h = 0; h < response.extendedIngredients.length; h++) {
+			$('#suggestedIngr').append(response.extendedIngredients[h].measures.us.amount + " " + response.extendedIngredients[h].measures.us.unitShort + " " + response.extendedIngredients[h].name + '<i class="fas fa-plus plusBtn circle" data-name="' + response.extendedIngredients[h].name + '"></i><br/>');
+		}
+		console.log(response.instructions);
+		if (response.instructions !== null) {
+			$('#suggestedInstructions').text("Instructions: " + response.instructions);
+		}
+		$('#suggestedRecipeImg').attr('src', response.image);
+		$('#suggestedRecipeURL').text("Source URL: " + response.sourceUrl);
+		$('#suggestedModal').modal('open');
+	});
 });	
