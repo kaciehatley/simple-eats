@@ -258,3 +258,6 @@ footer.page-footer {
     margin: 0 auto !important;
     left: 5%;
 }
+.row {
+    margin-bottom: 0px !important;
+}
