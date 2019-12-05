@@ -282,7 +282,7 @@ $('#clearListModal').on("click", function () {
 	$('#gListEl').css("height", "auto");
 	$('#gListEl').css("overflow-y", "visible");
 	$('#gListEl').css("overflow-x", "visible");
-	$("#gListEl").append("<p>Create and keep your grocery list handy. You can add to your list right from your recipe.</p>");
+	$("#gListEl").append("Create and keep your grocery list handy. You can add to your list right from your recipe.");
 	localStorage.clear();
 	groceryList = [];
 });
