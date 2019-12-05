@@ -253,3 +253,8 @@ footer.page-footer {
 .gListLandEl {
     display: none;
 }
+.search-wrapper {
+    min-width: 325px !important;
+    margin: 0 auto !important;
+    left: 5%;
+}
