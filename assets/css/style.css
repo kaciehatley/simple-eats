@@ -237,6 +237,11 @@ footer.page-footer {
 .sugImg {
     opacity: 1 !important;
 }
+
+.sugImg:hover {
+    transform: scale(1.05);
+}
+
 .portLink:hover {
     font-size: 18px;
     transition: all .3s ease-in-out;
