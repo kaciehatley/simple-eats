@@ -222,6 +222,7 @@ $(document).on("click", ".plusBtn", function () {
 		pTagDelay();
 	}
 	console.log(groceryList);
+	landingList();
 });
 
 $('.groceryBtn').on("click", function () {
