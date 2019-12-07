@@ -3,6 +3,8 @@
 ## About the Project
 This project was built collaboratively by three prospective coders at the UNCC Coding Bootcamp. This project allows a user to find recipes and filter results based on dietary restrictions, excluded ingredients, food intolerances, and types of food/drink. Users can add items from a recipe's ingredient list directly to a grocery list. 
 
+[Link to deployed project](https://kaciehatley.github.io/simple-eats/index2.html)
+
 ## Styling
 
 This website was built with materialize: https://materializecss.com/
